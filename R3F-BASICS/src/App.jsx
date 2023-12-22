@@ -1,5 +1,5 @@
+import "./index.css";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
-import "./App.css";
 import { useRef, useState } from "react";
 import { useHelper, PerspectiveCamera } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
@@ -9,6 +9,7 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import montserrat from "./assets/Montserrat.json";
 import * as THREE from "three";
+
 extend({ TextGeometry });
 async function timeout(delay) {
 	return new Promise((res) => setTimeout(res, delay));
@@ -39,7 +40,6 @@ const smoothAnimation = (camera, targetPos, targetRot, duration) => {
 
 const TextMesh = (textVals) => {
 	const font = new FontLoader().parse(montserrat);
-	console.log(textVals.args[0]);
 	return (
 		<mesh size={1} position={textVals.args[0]} rotation={textVals.args[1]}>
 			<textGeometry
@@ -98,11 +98,8 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition}) => {
 };
 
 const Scene = () => {
-	const directionalLightRef = useRef();
-	const camera = useThree((state) => state.camera);
-	const startPosition = { x: 3, y: 2, z: 3 };
-	const startRotation = { y: 0.785398 };
 
+	const directionalLightRef = useRef();
 	useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
 
 	return (
@@ -138,9 +135,11 @@ const Scene = () => {
 
 const App = () => {
 	return (
-		<Canvas>
-			<Scene />
-		</Canvas>
+		<>
+			<Canvas>
+				<Scene />
+			</Canvas>
+		</>
 	);
 };
 
