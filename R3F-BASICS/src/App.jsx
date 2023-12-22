@@ -1,6 +1,6 @@
 import "./index.css";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useHelper, PerspectiveCamera } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
 import { gsap } from "gsap";
@@ -98,6 +98,10 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition}) => {
 };
 
 const Scene = () => {
+	const { camera } = useThree();
+	camera.position.set(3, 2, 3);
+	camera.lookAt(0, 0, 0);
+	
 
 	const directionalLightRef = useRef();
 	useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
@@ -134,13 +138,56 @@ const Scene = () => {
 };
 
 const App = () => {
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
+
+		return () => clearTimeout(timer);
+	}, []);
+
 	return (
 		<>
-			<Canvas>
-				<Scene />
-			</Canvas>
+			{isLoading ? (
+				<>
+				<div
+					style={{
+						width: "100vw",
+						height: "100vh",
+						backgroundColor: "black",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						color: "white",
+						fontSize: "24px",
+					}}
+				>
+					Loading...
+				</div>
+				<Canvas>
+					<Scene />
+				</Canvas>
+				</>
+				
+			) : (
+				<Canvas>
+					<Scene />
+				</Canvas>
+			)}
 		</>
 	);
 };
+
+// const App = () => {
+// 	return (
+// 		<>
+// 			<Canvas>
+// 				<Scene />
+// 			</Canvas>
+// 		</>
+// 	);
+// };
 
 export default App;
