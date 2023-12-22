@@ -1,7 +1,7 @@
 import "./index.css";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
-import { useHelper, PerspectiveCamera } from "@react-three/drei";
+import { useHelper, PerspectiveCamera, CameraControls } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
 import { gsap } from "gsap";
 import ModelViewer from "./ModelViewer";
@@ -9,9 +9,11 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import montserrat from "./assets/Montserrat.json";
 import * as THREE from "three";
+import Laptop from "./laptop";
 
 const origin = new THREE.Vector3(0, 1, 0);
 const cameraStartPosition = new THREE.Vector3(3, 2, 3);
+
 
 extend({ TextGeometry });
 async function timeout() {
@@ -44,7 +46,7 @@ const smoothAnimation = (camera, targetPos, targetRot) => {
 const TextMesh = (textVals) => {
 	const font = new FontLoader().parse(montserrat);
 	return (
-		<mesh size={1} position={textVals.args[0]} rotation={textVals.args[1]}>
+		<mesh size={1} position={textVals.args[0]} rotation={textVals.args[1]} >
 			<textGeometry
 				attach="geometry"
 				args={["Click Me!", { font, size: 0.2, height: 0.1}]}
@@ -84,8 +86,8 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition}) => {
 				}}
 			>
 				<boxGeometry args={size} />
-				<meshStandardMaterial color={"white"} opacity={0} transparent />
-				<TextMesh args={[textPosition, textRotation]}  />
+				<meshStandardMaterial color={"white"} opacity={0.2} transparent />
+				{/* <TextMesh args={[textPosition, textRotation]}  /> */}
 			</mesh>
 
 			<PerspectiveCamera
@@ -108,6 +110,18 @@ const Scene = () => {
 
 	return (
 		<>
+			< Laptop />
+			<Cube
+				position={[0.5, 0, 0.5]}
+				size={[0.75, 2, 0.75]}
+				goTo={new THREE.Vector3(0.6, 1, 0.7)}
+				lookAt={new THREE.Vector3(-0.1, 0.7, 0)}
+				textRotation={[0, Math.PI / 4, 0]}
+				textPosition={[-0.5, 1, -0.5]}
+			/>
+
+
+
 			<directionalLight
 				position={[2, 5, 2]}
 				intensity={3}
@@ -133,6 +147,7 @@ const Scene = () => {
 				textRotation={[0, 0, 0]}
 				textPosition={[-0.6, 0.75, 1]}
 			/>
+
 		</>
 	);
 };
