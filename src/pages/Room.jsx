@@ -16,7 +16,21 @@ import * as THREE from "three";
 import Laptop from "./Laptop";
 
 const origin = new THREE.Vector3(0, 1, 0);
-const cameraStartPosition = new THREE.Vector3(3, 2, 3);
+const cameraStartPosition = new THREE.Vector3(0, 2, 3);
+
+import {
+	Html,
+	useGLTF
+} from "@react-three/drei";
+
+const iFrameStyle = {
+	width: "1000px",
+	height: "820px",
+	border: "none",
+	borderRadius: "20px",
+	display: "block",
+	margin: "0 auto",
+};
 
 extend({ TextGeometry });
 async function timeout() {
@@ -65,7 +79,7 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
 	const [clicked, setClicked] = useState(false);
 	const { camera } = useThree();
 	const target = lookAt;
-	useFrame(() => {});
+	useFrame(() => { });
 	if (clicked) {
 		const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
 		smoothAnimation(camera, goTo, couchRotation);
@@ -74,6 +88,7 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
 			cameraCubeRef,
 			cameraStartPosition,
 			origin
+
 		);
 		smoothAnimation(camera, cameraStartPosition, startRotation);
 	}
@@ -104,23 +119,35 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
 
 const Scene = () => {
 	const { camera } = useThree();
-	camera.position.set(3, 2, 3);
-	camera.lookAt(0, 1, 0);
-
+	const IGNORE_ME = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf");
 	const directionalLightRef = useRef();
 	useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
 
+
 	return (
 		<>
-			<Laptop />
 			<Cube
-				position={[0.5, 0, 0.5]}
-				size={[0.75, 2, 0.75]}
-				goTo={new THREE.Vector3(0.6, 1, 0.7)}
-				lookAt={new THREE.Vector3(-0.1, 0.7, 0)}
+				position={[0, 2, 0.5]}
+				size={[1, 1, 1]}
+				goTo={new THREE.Vector3(0, 2, 1)}
+				lookAt={new THREE.Vector3(0, 1.8, 0)}
 				textRotation={[0, Math.PI / 4, 0]}
 				textPosition={[-0.5, 1, -0.5]}
 			/>
+
+
+			<primitive object={IGNORE_ME.scene} position={[-0.08, 1.8, 0]} scale={0.05} >
+				<Html
+					wrapperClass="laptop"
+					position={[-0.13, 1.55, -1.4]}
+					transform
+				>
+					<div id="wrapper">
+							<iframe src="http://localhost:5173/screen" style={iFrameStyle} />
+					</div>
+				</Html>
+			</primitive>
+
 
 			<directionalLight
 				position={[2, 5, 2]}
@@ -129,24 +156,7 @@ const Scene = () => {
 				color={"white"}
 			/>
 			<ambientLight intensity={0.5} />
-			<ModelViewer scale="40" modelPath={"./models/room.glb"} />
-			<Cube
-				position={[-2, 1, 0.7]}
-				size={[2, 2, 2]}
-				goTo={new THREE.Vector3(0.3, 2, 0.7)}
-				lookAt={new THREE.Vector3(-2, 1, 0.7)}
-				textRotation={[0, Math.PI / 2, 0]}
-				textPosition={[0.75, 0.75, 0.75]}
-			/>
-
-			<Cube
-				position={[0.5, 1, -2]}
-				size={[2, 2, 0.3]}
-				goTo={new THREE.Vector3(0.5, 2, 0.5)}
-				lookAt={new THREE.Vector3(0.5, 0.5, -2)}
-				textRotation={[0, 0, 0]}
-				textPosition={[-0.6, 0.75, 1]}
-			/>
+			<ModelViewer scale="40" modelPath={"./models/table.glb"} />
 		</>
 	);
 };

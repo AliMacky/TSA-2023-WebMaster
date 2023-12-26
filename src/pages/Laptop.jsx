@@ -4,8 +4,8 @@ import {
 } from "@react-three/drei";
 
 const iFrameStyle = {
-	width: "1050px",
-	height: "700px",
+	width: "1000px",
+	height: "820px",
 	border: "none",
 	borderRadius: "20px",
 	display: "block",
@@ -16,13 +16,12 @@ export default function Laptop() {
 	const laptop = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf");
 	return (
 		<>
-			<primitive object={laptop.scene} position={[0.6, 0.8, 0.7]} scale={0.1} rotation={[0, Math.PI / 4, 0]}>
+			<primitive object={laptop.scene} position={[-0.08, 1.8, 0]} scale={0.05} >
 				<Html
 					wrapperClass="laptop"
 					position={[-0.13, 1.55, -1.4]}
 					transform
-					distanceFactor={1.16}
-					rotation-x={-0.25}
+					// rotation-y={0.01}
 				>
 					<div id="wrapper">
 						<iframe src="http://localhost:5173/screen" style={iFrameStyle} />
