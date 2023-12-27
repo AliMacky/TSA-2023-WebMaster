@@ -1,6 +1,7 @@
 import "../index.css";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, Suspense } from "react";
+import Loading from "../components/Loading";
 import {
 	useHelper,
 	PerspectiveCamera,
@@ -13,15 +14,12 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import montserrat from "../assets/Montserrat.json";
 import * as THREE from "three";
-import Laptop from "./Laptop";
+import Laptop from "../components/Laptop";
 
 const origin = new THREE.Vector3(0, 1, 0);
 const cameraStartPosition = new THREE.Vector3(0, 2, 3);
 
-import {
-	Html,
-	useGLTF
-} from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 
 const iFrameStyle = {
 	width: "670px",
@@ -79,7 +77,7 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
 	const [clicked, setClicked] = useState(false);
 	const { camera } = useThree();
 	const target = lookAt;
-	useFrame(() => { });
+	useFrame(() => {});
 	if (clicked) {
 		const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
 		smoothAnimation(camera, goTo, couchRotation);
@@ -88,7 +86,6 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
 			cameraCubeRef,
 			cameraStartPosition,
 			origin
-
 		);
 		smoothAnimation(camera, cameraStartPosition, startRotation);
 	}
@@ -119,10 +116,13 @@ const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
 
 const Scene = () => {
 	const { camera } = useThree();
-	const IGNORE_ME = useGLTF("https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf");
+	camera.position.set(0, 2, 3);
+	camera.lookAt(0, 1, 0);
+	const IGNORE_ME = useGLTF(
+		"https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
+	);
 	const directionalLightRef = useRef();
 	useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
-
 
 	return (
 		<>
@@ -135,19 +135,17 @@ const Scene = () => {
 				textPosition={[-0.5, 1, -0.5]}
 			/>
 
-
-			<primitive object={IGNORE_ME.scene} position={[-0.034, 1.83, 0.2]} scale={0.05} >
-				<Html
-					wrapperClass="laptop"
-					position={[-0.13, 1.55, 2]}
-					transform
-				>
+			<primitive
+				object={IGNORE_ME.scene}
+				position={[-0.034, 1.83, 0.2]}
+				scale={0.05}
+			>
+				<Html wrapperClass="laptop" position={[-0.13, 1.55, 2]} transform>
 					<div id="wrapper">
-							<iframe src="/screen" style={iFrameStyle} />
+						<iframe src="/screen" style={iFrameStyle} />
 					</div>
 				</Html>
 			</primitive>
-
 
 			<directionalLight
 				position={[2, 5, 2]}
@@ -175,32 +173,11 @@ const Room = () => {
 	return (
 		<>
 			<div style={{ width: "100vw", height: "100vh" }}>
-				{isLoading ? (
-					<>
-						<div
-							style={{
-								width: "100vw",
-								height: "100vh",
-								backgroundColor: "black",
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-								color: "white",
-								fontSize: "24px",
-							}}
-						>
-							Loading...
-						</div>
-						<Canvas>
-							<Scene />
-						</Canvas>
-					</>
-				) : (
+				<Suspense fallback={<Loading />}>
 					<Canvas>
-						{/* <CameraControls /> */}
 						<Scene />
 					</Canvas>
-				)}
+				</Suspense>
 			</div>
 		</>
 	);
