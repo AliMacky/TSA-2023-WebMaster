@@ -24,8 +24,8 @@ import {
 } from "@react-three/drei";
 
 const iFrameStyle = {
-	width: "1000px",
-	height: "820px",
+	width: "670px",
+	height: "570px",
 	border: "none",
 	borderRadius: "20px",
 	display: "block",
@@ -136,14 +136,14 @@ const Scene = () => {
 			/>
 
 
-			<primitive object={IGNORE_ME.scene} position={[-0.08, 1.8, 0]} scale={0.05} >
+			<primitive object={IGNORE_ME.scene} position={[-0.034, 1.83, 0.2]} scale={0.05} >
 				<Html
 					wrapperClass="laptop"
-					position={[-0.13, 1.55, -1.4]}
+					position={[-0.13, 1.55, 2]}
 					transform
 				>
 					<div id="wrapper">
-							<iframe src="http://localhost:5173/screen" style={iFrameStyle} />
+							<iframe src="/screen" style={iFrameStyle} />
 					</div>
 				</Html>
 			</primitive>

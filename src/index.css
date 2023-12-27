@@ -20,3 +20,8 @@ body {
   width: 960px;
   position: relative;
 }
+
+.test {
+ width: 1000px;
+ height: 1000px;
+}
