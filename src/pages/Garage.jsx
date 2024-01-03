@@ -45,6 +45,7 @@ const Garage = () => {
 			<div style={{ width: "100vw", height: "100vh" }}>
 				<Suspense fallback={<Loading />}>
 					<Canvas>
+						{/* <CameraControls /> */}
 						<GarageModel />
 					</Canvas>
 				</Suspense>
