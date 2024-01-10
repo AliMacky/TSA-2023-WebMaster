@@ -71,13 +71,13 @@ const TextMesh = (textVals) => {
 	);
 };
 
-const Cube = ({ position, size, goTo, lookAt, textRotation, textPosition }) => {
+const Cube = ({ position, size, goTo, lookAt }) => {
 	const objectRef = useRef();
 	const cameraCubeRef = useRef();
 	const [clicked, setClicked] = useState(false);
 	const { camera } = useThree();
 	const target = lookAt;
-	useFrame(() => {});
+	useFrame(() => { });
 	if (clicked) {
 		const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
 		smoothAnimation(camera, goTo, couchRotation);
@@ -125,51 +125,43 @@ const Scene = () => {
 	useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
 
 	return (
-		<>
-			<Cube
-				position={[0, 2, 0.5]}
-				size={[1, 1, 1]}
-				goTo={new THREE.Vector3(0, 2, 1)}
-				lookAt={new THREE.Vector3(0, 1.8, 0)}
-				textRotation={[0, Math.PI / 4, 0]}
-				textPosition={[-0.5, 1, -0.5]}
-			/>
+		<Suspense fallback={<Loading />}>
+			<>
+				<Cube
+					position={[0, 2, 0.5]}
+					size={[1, 1, 1]}
+					goTo={new THREE.Vector3(0, 2, 1)}
+					lookAt={new THREE.Vector3(0, 1.8, 0)}
+					textRotation={[0, Math.PI / 4, 0]}
+					textPosition={[-0.5, 1, -0.5]}
+				/>
 
-			<primitive
-				object={IGNORE_ME.scene}
-				position={[-0.034, 1.83, 0.2]}
-				scale={0.05}
-			>
-				<Html wrapperClass="laptop" position={[-0.13, 1.55, 2]} transform>
-					<div id="wrapper">
-						<iframe src="/screen" style={iFrameStyle} />
-					</div>
-				</Html>
-			</primitive>
+				<primitive
+					object={IGNORE_ME.scene}
+					position={[-0.034, 1.83, 0.2]}
+					scale={0.05}
+				>
+					<Html wrapperClass="laptop" position={[-0.13, 1.55, 2]} transform>
+						<div id="wrapper">
+							<iframe src="/screen" style={iFrameStyle} />
+						</div>
+					</Html>
+				</primitive>
 
-			<directionalLight
-				position={[2, 5, 2]}
-				intensity={3}
-				ref={directionalLightRef}
-				color={"white"}
-			/>
-			<ambientLight intensity={0.5} />
-			<ModelViewer scale="40" modelPath={"./models/table.glb"} />
-		</>
+				<directionalLight
+					position={[2, 5, 2]}
+					intensity={3}
+					ref={directionalLightRef}
+					color={"white"}
+				/>
+				<ambientLight intensity={0.5} />
+				<ModelViewer scale="40" modelPath={"./models/table.glb"} />
+			</>
+		</Suspense>
 	);
 };
 
 const Room = () => {
-	const [isLoading, setIsLoading] = useState(true);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
-
-		return () => clearTimeout(timer);
-	}, []);
-
 	return (
 		<>
 			<div style={{ width: "100vw", height: "100vh" }}>
@@ -182,15 +174,5 @@ const Room = () => {
 		</>
 	);
 };
-
-// const Room = () => {
-// 	return (
-// 		<>
-// 			<Canvas>
-// 				<Scene />
-// 			</Canvas>
-// 		</>
-// 	);
-// };
 
 export default Room;
