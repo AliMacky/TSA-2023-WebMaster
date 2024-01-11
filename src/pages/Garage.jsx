@@ -1,21 +1,8 @@
-import React, { Suspense, useRef, useState, useEffect } from "react";
-import {
-	useHelper,
-	CameraControls,
-	Environment,
-	useGLTF,
-} from "@react-three/drei";
-import {
-	Canvas,
-	extend,
-	useFrame,
-	useThree,
-	useLoader,
-} from "@react-three/fiber";
+import React, { Suspense, useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
 import Loading from "../components/Loading";
-import * as THREE from "three";
-import ModelViewer from "../ModelViewer";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
+
 const GarageModel = () => {
 	const { camera } = useThree();
 	camera.position.set(-2, 3, -7);

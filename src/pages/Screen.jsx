@@ -1,13 +1,9 @@
 import React from "react";
 import wallpaper from "../assets/bg.jpg";
 import { FaEarthAmericas } from "react-icons/fa6";
-import {
-	FaTrashAlt,
-	FaCalculator,
-	FaSearch,
-	FaFolderMinus,
-} from "react-icons/fa";
+import { FaTrashAlt, FaCalculator, FaSearch, FaFolderMinus } from "react-icons/fa";
 import { PiGarageBold } from "react-icons/pi";
+
 const Screen = () => {
 	const changeScreen = () => {
 		window.top.location.href = "/garage";

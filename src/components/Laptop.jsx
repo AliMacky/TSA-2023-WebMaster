@@ -1,7 +1,4 @@
-import {
-	Html,
-	useGLTF
-} from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 
 const iFrameStyle = {
 	width: "1000px",

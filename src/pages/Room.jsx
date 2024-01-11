@@ -1,25 +1,27 @@
 import "../index.css";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState, useEffect, Suspense } from "react";
+import { useRef, useState, Suspense } from "react";
 import Loading from "../components/Loading";
-import {
-	useHelper,
-	PerspectiveCamera,
-	CameraControls,
-} from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
 import { gsap } from "gsap";
-import ModelViewer from "../ModelViewer";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import montserrat from "../assets/Montserrat.json";
 import * as THREE from "three";
-import Laptop from "../components/Laptop";
+import { Html, useGLTF, useHelper, PerspectiveCamera } from "@react-three/drei";
+// import ModelViewer from "../ModelViewer";
 
 const origin = new THREE.Vector3(0, 1, 0);
 const cameraStartPosition = new THREE.Vector3(0, 2, 3);
 
-import { Html, useGLTF } from "@react-three/drei";
+const RoomModel = () => {
+	const model = useGLTF("models/table.glb");
+	return (
+		<>
+			<primitive object={model.scene} />
+		</>
+	);
+};
 
 const iFrameStyle = {
 	width: "670px",
@@ -125,7 +127,7 @@ const Scene = () => {
 	useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
 
 	return (
-		<Suspense fallback={<Loading />}>
+		// <Suspense fallback={<Loading />}>
 			<>
 				<Cube
 					position={[0, 2, 0.5]}
@@ -155,9 +157,10 @@ const Scene = () => {
 					color={"white"}
 				/>
 				<ambientLight intensity={0.5} />
-				<ModelViewer scale="40" modelPath={"./models/table.glb"} />
+				<RoomModel />
+				{/* <ModelViewer scale="40" modelPath={"./models/table.glb"} /> */}
 			</>
-		</Suspense>
+		// </Suspense>
 	);
 };
 
