@@ -266,14 +266,6 @@ const Garage = () => {
                             textPosition={[2.5, 1.55, -1.6]}
                             num={2}
                         />
-                        {/* <Text3D>hello</Text3D> */}
-                        {/* <mesh
-                            position={[2.5, 0.5, -1]}
-                            rotation={[0, Math.PI * 1.5, 0]}
-                        >
-                            <planeGeometry args={[1.7, 2.2]} />
-                            <meshPhongMaterial color={"gray"} />
-                        </mesh> */}
                     </Canvas>
                 </Suspense>
             </div>
