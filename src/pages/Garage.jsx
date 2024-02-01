@@ -136,9 +136,6 @@ const Cube = ({
                 goTo,
                 target
             );
-            if (num === 2) {
-                camera.position.set(-1, 3, -6);
-            }
             smoothAnimation(camera, goTo, couchRotation);
         } else if (!clicked && cameraCubeRef.current) {
             console.log("!clicked");
