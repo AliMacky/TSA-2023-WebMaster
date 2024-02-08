@@ -4,6 +4,8 @@ import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import Loading from "../components/Loading";
 import * as THREE from "three";
 import { gsap } from "gsap";
+import { smoothAnimation } from "../smoothAnimation";
+import { calculateRotation } from "../calculateRotation";
 
 const origin = new THREE.Vector3(0, 0, 0);
 const cameraStartPosition = new THREE.Vector3(-2, 3, -7);
@@ -76,29 +78,6 @@ const solarPowerText = (
         </p>
     </div>
 );
-
-const smoothAnimation = (camera, targetPos, targetRot) => {
-    gsap.to(camera.position, {
-        duration: 1,
-        x: targetPos.x,
-        y: targetPos.y,
-        z: targetPos.z,
-        ease: "power3.inOut",
-    });
-    gsap.to(camera.rotation, {
-        duration: 1,
-        x: targetRot.x,
-        y: targetRot.y,
-        z: targetRot.z,
-        ease: "power3.inOut",
-    });
-};
-
-const calculateRotation = (temp, pos, lookAt) => {
-    temp.current.position.copy(pos);
-    temp.current.lookAt(lookAt);
-    return temp.current.rotation;
-};
 
 const Cube = ({
     position,
