@@ -22,3 +22,7 @@ dist-ssr
 .firebase/**
 .firebaserc
 firebase.json
+.env
+.venv
+env/
+venv/
