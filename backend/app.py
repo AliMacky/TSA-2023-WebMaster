@@ -24,8 +24,8 @@ def predict():
                 filename,
             )
         )
-        answer, probability_results = getPrediction(filename)
-        return jsonify({"prediction": answer, "probability": probability_results})
+        answer, probability_results, category = getPrediction(filename)
+        return jsonify({"prediction": answer, "probability": probability_results, "category": category})
 
 
 def getPrediction(filename):
@@ -69,6 +69,7 @@ def getPrediction(filename):
 
     if probability_results < 90:
         answer = "Trash"
+        category = 2
 
     probability_results = str(probability_results)
     os.remove(
@@ -77,7 +78,7 @@ def getPrediction(filename):
             filename,
         )
     )
-    return answer, probability_results
+    return answer, probability_results, category
 
 
 if __name__ == "__main__":
