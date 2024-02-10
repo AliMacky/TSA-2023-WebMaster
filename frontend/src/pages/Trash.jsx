@@ -80,7 +80,6 @@ const Form = () => {
     };
 
     const moveCamera = async (category) => {
-        console.log(category);
         if (category === 0) {
             setCategory("compost");
             const goTo = new THREE.Vector3(-2.5, 4.5, 3);
@@ -135,7 +134,7 @@ const Form = () => {
 
     return (
         <>
-            <Html position={[0, 22.7, -13.7]}>
+            <Html position={[0, 22.7, -14]}>
                 <div className="w-[600px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
                     <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
                         Waste Classifier
@@ -198,6 +197,19 @@ const Form = () => {
     );
 };
 
+const Info = () => {
+    return (
+        <Html position={[0, 22.7, 1.6]}>
+            <div className="w-[600px] h-[550px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+                <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
+                    More Info
+                </h1>
+                <p>research</p>
+            </div>
+        </Html>
+    );
+};
+
 const Trash = () => {
     return (
         <div className="w-screen h-screen bg-gray-600">
@@ -207,6 +219,7 @@ const Trash = () => {
                         {/* <CameraControls /> */}
                         <GarbageBinsModel />
                         <Form />
+                        <Info />
                     </Canvas>
                 </Suspense>
             </div>

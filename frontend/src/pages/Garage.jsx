@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { smoothAnimation } from "../smoothAnimation";
 import { calculateRotation } from "../calculateRotation";
 import "../index.css";
+import { MdOutlineCancel } from "react-icons/md";
 
 const origin = new THREE.Vector3(0, 0, 0);
 const cameraStartPosition = new THREE.Vector3(-2, 3, -7);
@@ -34,81 +35,8 @@ const GarageModel = () => {
     );
 };
 
-const carText = (
-    <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
-        <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
-            Electric Cars
-        </h1>
-        <p className="text-lg leading-relaxed tracking-normal mt-6">
-            <p>
-                Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius qui
-                laudantium excepturi aut repellendus odio. Est voluptatum
-                corporis vel laudantium rerum aut quibusdam sunt non quia
-                architecto aut maiores magni. Ea nihil magni aut expedita
-                assumenda sed veniam itaque non dolorem consequatur sit rerum
-                incidunt sed consequuntur nesciunt.{" "}
-            </p>
-            <p>
-                Et quos veniam ut ratione inventore vel culpa dignissimos id
-                minus rerum et dicta enim aut illo voluptas. Eum ipsa iure aut
-                rerum eius qui odio eaque ex aliquam perspiciatis. Et ipsa
-                delectus 33 harum tempora eum quis commodi. Ab aliquid quaerat
-                ut aperiam Quis rem adipisci autem aut nostrum corrupti vel
-                necessitatibus totam hic autem repudiandae vel molestiae
-                dignissimos!{" "}
-            </p>
-            <p>
-                In consequatur labore sit nulla modi et labore corporis et alias
-                excepturi. Aut voluptas consequuntur sit eius temporibus ea
-                veniam consequuntur qui velit minima sit cupiditate dolorem. Et
-                reiciendis magnam 33 atque voluptas id tempore amet quo dolorum
-                autem ex reiciendis cupiditate et unde asperiores. Non iste
-                rerum non facere accusantium rem suscipit obcaecati aut
-                consequuntur Quis.{" "}
-            </p>
-        </p>
-    </div>
-);
-
-const solarPowerText = (
-    <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
-        <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
-            Solar Power
-        </h1>
-        <p className="text-lg leading-relaxed tracking-normal mt-6">
-            <p>
-                Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius qui
-                laudantium excepturi aut repellendus odio. Est voluptatum
-                corporis vel laudantium rerum aut quibusdam sunt non quia
-                architecto aut maiores magni. Ea nihil magni aut expedita
-                assumenda sed veniam itaque non dolorem consequatur sit rerum
-                incidunt sed consequuntur nesciunt.{" "}
-            </p>
-            <p>
-                Et quos veniam ut ratione inventore vel culpa dignissimos id
-                minus rerum et dicta enim aut illo voluptas. Eum ipsa iure aut
-                rerum eius qui odio eaque ex aliquam perspiciatis. Et ipsa
-                delectus 33 harum tempora eum quis commodi. Ab aliquid quaerat
-                ut aperiam Quis rem adipisci autem aut nostrum corrupti vel
-                necessitatibus totam hic autem repudiandae vel molestiae
-                dignissimos!{" "}
-            </p>
-            <p>
-                In consequatur labore sit nulla modi et labore corporis et alias
-                excepturi. Aut voluptas consequuntur sit eius temporibus ea
-                veniam consequuntur qui velit minima sit cupiditate dolorem. Et
-                reiciendis magnam 33 atque voluptas id tempore amet quo dolorum
-                autem ex reiciendis cupiditate et unde asperiores. Non iste
-                rerum non facere accusantium rem suscipit obcaecati aut
-                consequuntur Quis.{" "}
-            </p>
-        </p>
-    </div>
-);
-
 const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
-    const [clicked, setClicked] = useState(true);
-    const [opacity, setOpacity] = useState(0);
+    const [clicked, setClicked] = useState(false);
     const [cubeOpacity, setCubeOpacity] = useState(0);
     const [view, setView] = useState(0);
     const [text, setText] = useState();
@@ -123,15 +51,15 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
         document.body.style.cursor = hovered ? "pointer" : "auto";
     }, [hovered]);
 
-    const moveCamera = () => {
-        if (clicked) {
+    const moveCamera = (n) => {
+        if (n === 0) {
             const couchRotation = calculateRotation(
                 cameraCubeRef,
                 goTo,
                 target
             );
             smoothAnimation(camera, goTo, couchRotation);
-        } else if (!clicked && cameraCubeRef.current) {
+        } else {
             const startRotation = calculateRotation(
                 cameraCubeRef,
                 cameraStartPosition,
@@ -141,12 +69,133 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
         }
     };
 
+    const handleClick = () => {
+        if (clickable) {
+            setClickable(false);
+            setTimeout(() => {
+                setClickable(true);
+            }, 1000);
+            if (!clicked) {
+                moveCamera(0);
+                setView(1);
+                setCubeOpacity(0);
+                setTimeout(() => {
+                    setClicked(true);
+                    if (num === 1) {
+                        setText(carText);
+                    } else {
+                        setText(solarPowerText);
+                    }
+                }, 1000);
+            } else {
+                moveCamera(1);
+                setClicked(false);
+                setText();
+                setView(0);
+            }
+        }
+    };
+
+    const carText = (
+        <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+            <button
+                className="absolute top-2 left-2 text-white text-5xl p-2"
+                onClick={() => {
+                    moveCamera(1);
+                    setClicked(false);
+                    setText();
+                    setView(0);
+                }}
+            >
+                <MdOutlineCancel />
+            </button>
+            <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
+                Electric Cars
+            </h1>
+
+            <p className="text-lg leading-relaxed tracking-normal mt-6">
+                <p>
+                    Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius
+                    qui laudantium excepturi aut repellendus odio. Est
+                    voluptatum corporis vel laudantium rerum aut quibusdam sunt
+                    non quia architecto aut maiores magni. Ea nihil magni aut
+                    expedita assumenda sed veniam itaque non dolorem consequatur
+                    sit rerum incidunt sed consequuntur nesciunt.{" "}
+                </p>
+                <p>
+                    Et quos veniam ut ratione inventore vel culpa dignissimos id
+                    minus rerum et dicta enim aut illo voluptas. Eum ipsa iure
+                    aut rerum eius qui odio eaque ex aliquam perspiciatis. Et
+                    ipsa delectus 33 harum tempora eum quis commodi. Ab aliquid
+                    quaerat ut aperiam Quis rem adipisci autem aut nostrum
+                    corrupti vel necessitatibus totam hic autem repudiandae vel
+                    molestiae dignissimos!{" "}
+                </p>
+                <p>
+                    In consequatur labore sit nulla modi et labore corporis et
+                    alias excepturi. Aut voluptas consequuntur sit eius
+                    temporibus ea veniam consequuntur qui velit minima sit
+                    cupiditate dolorem. Et reiciendis magnam 33 atque voluptas
+                    id tempore amet quo dolorum autem ex reiciendis cupiditate
+                    et unde asperiores. Non iste rerum non facere accusantium
+                    rem suscipit obcaecati aut consequuntur Quis.{" "}
+                </p>
+            </p>
+        </div>
+    );
+
+    const solarPowerText = (
+        <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+            <button
+                className="absolute top-2 left-2 text-white text-5xl p-2"
+                onClick={() => {
+                    moveCamera(1);
+                    setClicked(false);
+                    setText();
+                    setView(0);
+                }}
+            >
+                <MdOutlineCancel />
+            </button>
+            <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
+                Solar Power
+            </h1>
+            <p className="text-lg leading-relaxed tracking-normal mt-6">
+                <p>
+                    Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius
+                    qui laudantium excepturi aut repellendus odio. Est
+                    voluptatum corporis vel laudantium rerum aut quibusdam sunt
+                    non quia architecto aut maiores magni. Ea nihil magni aut
+                    expedita assumenda sed veniam itaque non dolorem consequatur
+                    sit rerum incidunt sed consequuntur nesciunt.{" "}
+                </p>
+                <p>
+                    Et quos veniam ut ratione inventore vel culpa dignissimos id
+                    minus rerum et dicta enim aut illo voluptas. Eum ipsa iure
+                    aut rerum eius qui odio eaque ex aliquam perspiciatis. Et
+                    ipsa delectus 33 harum tempora eum quis commodi. Ab aliquid
+                    quaerat ut aperiam Quis rem adipisci autem aut nostrum
+                    corrupti vel necessitatibus totam hic autem repudiandae vel
+                    molestiae dignissimos!{" "}
+                </p>
+                <p>
+                    In consequatur labore sit nulla modi et labore corporis et
+                    alias excepturi. Aut voluptas consequuntur sit eius
+                    temporibus ea veniam consequuntur qui velit minima sit
+                    cupiditate dolorem. Et reiciendis magnam 33 atque voluptas
+                    id tempore amet quo dolorum autem ex reiciendis cupiditate
+                    et unde asperiores. Non iste rerum non facere accusantium
+                    rem suscipit obcaecati aut consequuntur Quis.{" "}
+                </p>
+            </p>
+        </div>
+    );
+
     return (
         <>
             <mesh
                 ref={objectRef}
                 onPointerOver={() => {
-                    console.log(opacity);
                     setHovered(true);
                     if (view !== 1) {
                         setCubeOpacity(0.15);
@@ -160,30 +209,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 }}
                 onClick={(event) => {
                     event.stopPropagation();
-                    if (clickable) {
-                        setClicked(!clicked);
-                        moveCamera();
-                        setClickable(false);
-                        setTimeout(() => {
-                            setClickable(true);
-                        }, 1000);
-                        if (opacity === 0) {
-                            setView(1);
-                            setCubeOpacity(0);
-                            setTimeout(() => {
-                                setOpacity(1);
-                                if (num === 1) {
-                                    setText(carText);
-                                } else {
-                                    setText(solarPowerText);
-                                }
-                            }, 1000);
-                        } else {
-                            setOpacity(0);
-                            setText();
-                            setView(0);
-                        }
-                    }
+                    handleClick();
                 }}
                 position={position}
             >
@@ -226,7 +252,7 @@ const Garage = () => {
                             size={[1, 2, 1.5]}
                             goTo={new THREE.Vector3(1, 0.5, 0)}
                             lookAt={new THREE.Vector3(3.5, 0.5, 0)}
-                            textPosition={[2.5, 1.4, -1.6]}
+                            textPosition={[2.4, 1.35, -1.6]}
                             num={2}
                         />
                     </Canvas>
