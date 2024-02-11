@@ -18,9 +18,10 @@ def predict():
     if request.method == "POST":
         file = request.files["file"]
         filename = secure_filename(file.filename)
+        
         file.save(
             os.path.join(
-                "images",
+                "backend/Images/",
                 filename,
             )
         )
@@ -29,7 +30,7 @@ def predict():
 
 
 def getPrediction(filename):
-    model_path = "model/optimized_model.tflite"
+    model_path = "backend\model\optimized_model.tflite"
 
     # Load the model using TensorFlow Lite interpreter
     interpreter = tf.lite.Interpreter(model_path=model_path)
@@ -37,7 +38,7 @@ def getPrediction(filename):
 
     # Load and preprocess the image
     img = load_img(
-        "images" + filename,
+        "backend/Images/" + filename,
         target_size=(180, 180),
     )
     img = img_to_array(img) / 255.0
@@ -74,7 +75,7 @@ def getPrediction(filename):
     probability_results = str(probability_results)
     os.remove(
         os.path.join(
-            "images",
+            "backend/Images/",
             filename,
         )
     )
