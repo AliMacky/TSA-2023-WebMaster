@@ -71,32 +71,6 @@ const Form = () => {
     const [scale, setScale] = useState(1);
     const [scalePosition, setScalePosition] = useState([0, 22.7, -14.8]);
 
-    useEffect(() => {
-        if (screenSize.width < 450) {
-            setScale(0.3);
-            setScalePosition([0, 22.7, -14.7]);
-        } else if (screenSize.width < 550) {
-            setScale(0.4);
-            setScalePosition([0, 22.7, -11]);
-        } else if (screenSize.width < 700) {
-            setScale(0.5);
-            setScalePosition([0, 22.7, -12]);
-        } else if (screenSize.width < 800) {
-            setScale(0.6);
-            setScalePosition([0, 22.7, -13]);
-        } else if (screenSize.width < 900) {
-            setScale(0.7);
-        } else if (screenSize.width < 950) {
-            setScalePosition([0, 22.7, -14.2]);
-            setScale(0.8);
-        } else if (screenSize.width < 1200) {
-            setScale(0.8);
-        } else {
-            setScale(1);
-            setScalePosition([0, 22.7, -14.8]);
-        }
-    }, [screenSize.width]);
-
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setImage(file);
@@ -188,10 +162,10 @@ const Form = () => {
     return (
         <>
             <Html
-                position={scalePosition}
-                style={{ transform: `scale(${scale})` }}
+                position={[ 10, 30 , -1 * screenSize.width / 70]}
+                // style={{ transform: `scale(${scale})` }}
             >
-                <div className="w-[600px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+                <div className="w-[40vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
                     <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
                         Waste Classifier
                     </h1>
@@ -257,36 +231,9 @@ const Info = () => {
     const screenSize = useScreenSize();
     const [scale, setScale] = useState(1);
     const [position, setPosition] = useState([0, 22.7, 1.6]);
-    useEffect(() => {
-        if (screenSize.width < 450) {
-            setScale(0.3);
-            setPosition([0, 24.65, -7.5]);
-        } else if (screenSize.width < 550) {
-            setScale(0.4);
-            setPosition([0, 22.7, -4]);
-        } else if (screenSize.width < 700) {
-            setScale(0.5);
-            setPosition([0, 22.7, -3]);
-        } else if (screenSize.width < 800) {
-            setScale(0.6);
-            setPosition([0, 22.7, -2.3]);
-        } else if (screenSize.width < 900) {
-            setScale(0.7);
-            setPosition([0, 22.7, -1.5]);
-        } else if (screenSize.width < 950) {
-            setScale(0.8);
-            setPosition([0, 22.7, -0.7]);
-        } else if (screenSize.width < 1200) {
-            setScale(0.8);
-            setPosition([0, 22.7, 0]);
-        } else {
-            setScale(1);
-            setPosition([0, 22.7, 1.6]);
-        }
-    }, [screenSize.width]);
     return (
-        <Html position={position} style={{ transform: `scale(${scale})` }}>
-            <div className="w-[600px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+        <Html position={[ 10, 30, screenSize.width / 500]} /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw">
+            <div className="w-[40vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
                 <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
                     More Info
                 </h1>

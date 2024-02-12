@@ -107,7 +107,6 @@ const Scene = () => {
         "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
     );
     const directionalLightRef = useRef();
-    useHelper(directionalLightRef, DirectionalLightHelper, 0.5, "white");
 
     return (
         // <Suspense fallback={<Loading />}>
@@ -140,7 +139,6 @@ const Scene = () => {
             <directionalLight
                 position={[2, 5, 2]}
                 intensity={3}
-                ref={directionalLightRef}
                 color={"white"}
             />
             <ambientLight intensity={0.5} />
