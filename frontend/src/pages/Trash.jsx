@@ -11,6 +11,30 @@ import axios from "axios";
 const origin = new THREE.Vector3(0, 11, 0);
 const cameraStartPosition = new THREE.Vector3(-17, 11, 0);
 
+const useScreenSize = () => {
+    const [screenSize, setScreenSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    return screenSize;
+};
+
 const GarbageBinsModel = () => {
     const { camera } = useThree();
     camera.position.set(-17, 11, 0);
@@ -43,6 +67,35 @@ const Form = () => {
     const { camera } = useThree();
     const [position, setPosition] = useState([999, 999, 999]);
     const [category, setCategory] = useState(null);
+    const screenSize = useScreenSize();
+    const [scale, setScale] = useState(1);
+    const [scalePosition, setScalePosition] = useState([0, 22.7, -14.8]);
+
+    useEffect(() => {
+        if (screenSize.width < 450) {
+            setScale(0.3);
+            setScalePosition([0, 22.7, -14.7]);
+        } else if (screenSize.width < 550) {
+            setScale(0.4);
+            setScalePosition([0, 22.7, -11]);
+        } else if (screenSize.width < 700) {
+            setScale(0.5);
+            setScalePosition([0, 22.7, -12]);
+        } else if (screenSize.width < 800) {
+            setScale(0.6);
+            setScalePosition([0, 22.7, -13]);
+        } else if (screenSize.width < 900) {
+            setScale(0.7);
+        } else if (screenSize.width < 950) {
+            setScalePosition([0, 22.7, -14.2]);
+            setScale(0.8);
+        } else if (screenSize.width < 1200) {
+            setScale(0.8);
+        } else {
+            setScale(1);
+            setScalePosition([0, 22.7, -14.8]);
+        }
+    }, [screenSize.width]);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -134,7 +187,10 @@ const Form = () => {
 
     return (
         <>
-            <Html position={[0, 22.7, -14]}>
+            <Html
+                position={scalePosition}
+                style={{ transform: `scale(${scale})` }}
+            >
                 <div className="w-[600px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
                     <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
                         Waste Classifier
@@ -198,13 +254,53 @@ const Form = () => {
 };
 
 const Info = () => {
+    const screenSize = useScreenSize();
+    const [scale, setScale] = useState(1);
+    const [position, setPosition] = useState([0, 22.7, 1.6]);
+    useEffect(() => {
+        if (screenSize.width < 450) {
+            setScale(0.3);
+            setPosition([0, 24.65, -7.5]);
+        } else if (screenSize.width < 550) {
+            setScale(0.4);
+            setPosition([0, 22.7, -4]);
+        } else if (screenSize.width < 700) {
+            setScale(0.5);
+            setPosition([0, 22.7, -3]);
+        } else if (screenSize.width < 800) {
+            setScale(0.6);
+            setPosition([0, 22.7, -2.3]);
+        } else if (screenSize.width < 900) {
+            setScale(0.7);
+            setPosition([0, 22.7, -1.5]);
+        } else if (screenSize.width < 950) {
+            setScale(0.8);
+            setPosition([0, 22.7, -0.7]);
+        } else if (screenSize.width < 1200) {
+            setScale(0.8);
+            setPosition([0, 22.7, 0]);
+        } else {
+            setScale(1);
+            setPosition([0, 22.7, 1.6]);
+        }
+    }, [screenSize.width]);
     return (
-        <Html position={[0, 22.7, 1.6]}>
-            <div className="w-[600px] h-[550px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+        <Html position={position} style={{ transform: `scale(${scale})` }}>
+            <div className="w-[600px] max-w-lg mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
                 <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
                     More Info
                 </h1>
-                <p>research</p>
+                <p>
+                    {screenSize.width} {screenSize.height} Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit. Ut sit amet mi in elit
+                    efficitur gravida consequat vitae elit. Aliquam blandit nibh
+                    risus, id consequat mi finibus vitae. Proin euismod purus a
+                    cursus volutpat. Morbi convallis arcu ut lectus fermentum
+                    semper. Maecenas non massa commodo, rhoncus metus vel,
+                    rutrum tellus. Aliquam erat volutpat. Aliquam erat volutpat.
+                    In et lectus vel eros iaculis cursus. Suspendisse lobortis
+                    ultrices elit lobortis{" "}
+                </p>
             </div>
         </Html>
     );
