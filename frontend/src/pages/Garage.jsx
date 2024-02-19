@@ -83,8 +83,10 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                     setClicked(true);
                     if (num === 1) {
                         setText(carText);
-                    } else {
+                    } else if (num === 2) {
                         setText(solarPowerText);
+                    } else {
+                        setText(heatingText);
                     }
                 }, 1000);
             } else {
@@ -97,7 +99,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
     };
 
     const carText = (
-        <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[40vw] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
             <button
                 className="absolute top-2 left-2 text-white text-5xl p-2"
                 onClick={() => {
@@ -112,35 +114,34 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
             <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
                 Electric Cars
             </h1>
-
-            <p className="text-lg leading-relaxed tracking-normal mt-6">
-                <p>
-                    Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius
-                    qui laudantium excepturi aut repellendus odio. Est
-                    voluptatum corporis vel laudantium rerum aut quibusdam sunt
-                    non quia architecto aut maiores magni. Ea nihil magni aut
-                    expedita assumenda sed veniam itaque non dolorem consequatur
-                    sit rerum incidunt sed consequuntur nesciunt.{" "}
-                </p>
-                <p>
-                    Et quos veniam ut ratione inventore vel culpa dignissimos id
-                    minus rerum et dicta enim aut illo voluptas. Eum ipsa iure
-                    aut rerum eius qui odio eaque ex aliquam perspiciatis. Et
-                    ipsa delectus 33 harum tempora eum quis commodi. Ab aliquid
-                    quaerat ut aperiam Quis rem adipisci autem aut nostrum
-                    corrupti vel necessitatibus totam hic autem repudiandae vel
-                    molestiae dignissimos!{" "}
-                </p>
-                <p>
-                    In consequatur labore sit nulla modi et labore corporis et
-                    alias excepturi. Aut voluptas consequuntur sit eius
-                    temporibus ea veniam consequuntur qui velit minima sit
-                    cupiditate dolorem. Et reiciendis magnam 33 atque voluptas
-                    id tempore amet quo dolorum autem ex reiciendis cupiditate
-                    et unde asperiores. Non iste rerum non facere accusantium
-                    rem suscipit obcaecati aut consequuntur Quis.{" "}
-                </p>
+            <p className="text-xsm leading-relaxed tracking-normal mt-6">
+                Electric cars, a modern marvel of sustainable transportation,
+                come in various types with differences in performance, costs,
+                and environmental impact.
             </p>
+            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+                Costs
+            </h2>
+            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+                Costs associated with electric cars can vary due to a variety of
+                factors, including the initial purchase price, charging
+                infrastructure, and operational expenses. The upfront cost of an
+                electric car can range anywhere from $20,000 to hundreds of
+                thousands of dollars depending on your needs.
+            </p>
+            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+                Benefits
+            </h2>
+            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+                Electric vehicles significantly reduce greenhouse gases and
+                pollution, which contributes to cleaner air and mitigating
+                climate change. Moreover, the growing popularity of electric
+                cars stimulates advancements in renewable energy technology and
+                job creation within the clean energy sector.
+            </p>
+            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+                Tax Rebates
+            </h2>
         </div>
     );
 
@@ -191,6 +192,53 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
         </div>
     );
 
+    const heatingText = (
+        <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+            <button
+                className="absolute top-2 left-2 text-white text-5xl p-2"
+                onClick={() => {
+                    moveCamera(1);
+                    setClicked(false);
+                    setText();
+                    setView(0);
+                }}
+            >
+                <MdOutlineCancel />
+            </button>
+            <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
+                Heating
+            </h1>
+            <p className="text-lg leading-relaxed tracking-normal mt-6">
+                <p>
+                    Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius
+                    qui laudantium excepturi aut repellendus odio. Est
+                    voluptatum corporis vel laudantium rerum aut quibusdam sunt
+                    non quia architecto aut maiores magni. Ea nihil magni aut
+                    expedita assumenda sed veniam itaque non dolorem consequatur
+                    sit rerum incidunt sed consequuntur nesciunt.{" "}
+                </p>
+                <p>
+                    Et quos veniam ut ratione inventore vel culpa dignissimos id
+                    minus rerum et dicta enim aut illo voluptas. Eum ipsa iure
+                    aut rerum eius qui odio eaque ex aliquam perspiciatis. Et
+                    ipsa delectus 33 harum tempora eum quis commodi. Ab aliquid
+                    quaerat ut aperiam Quis rem adipisci autem aut nostrum
+                    corrupti vel necessitatibus totam hic autem repudiandae vel
+                    molestiae dignissimos!{" "}
+                </p>
+                <p>
+                    In consequatur labore sit nulla modi et labore corporis et
+                    alias excepturi. Aut voluptas consequuntur sit eius
+                    temporibus ea veniam consequuntur qui velit minima sit
+                    cupiditate dolorem. Et reiciendis magnam 33 atque voluptas
+                    id tempore amet quo dolorum autem ex reiciendis cupiditate
+                    et unde asperiores. Non iste rerum non facere accusantium
+                    rem suscipit obcaecati aut consequuntur Quis.{" "}
+                </p>
+            </p>
+        </div>
+    );
+
     return (
         <>
             <mesh
@@ -198,7 +246,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 onPointerOver={() => {
                     setHovered(true);
                     if (view !== 1) {
-                        setCubeOpacity(0.15);
+                        setCubeOpacity(0.2);
                     }
                 }}
                 onPointerOut={() => {
@@ -240,7 +288,7 @@ const Garage = () => {
                         {/* <CameraControls /> */}
                         <GarageModel />
                         <Cube
-                            position={[-1.25, 0.75, -2]}
+                            position={[-1.4, 0.75, -2]}
                             size={[3.2, 2, 5]}
                             goTo={new THREE.Vector3(0.2, 1, -6.5)}
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
@@ -254,6 +302,14 @@ const Garage = () => {
                             lookAt={new THREE.Vector3(3.5, 0.5, 0)}
                             textPosition={[2.4, 1.35, -1.6]}
                             num={2}
+                        />
+                        <Cube
+                            position={[2.6, 1.4, -3.3]}
+                            size={[0.6, 0.8, 1]}
+                            goTo={new THREE.Vector3(1.8, 1.15, -3.5)}
+                            lookAt={new THREE.Vector3(10, 1.15, -3.5)}
+                            textPosition={[3, 1.85, -4.9]}
+                            num={3}
                         />
                     </Canvas>
                 </Suspense>
