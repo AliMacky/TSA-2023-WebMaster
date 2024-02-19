@@ -112,7 +112,7 @@ const Scene = () => {
         // <Suspense fallback={<Loading />}>
         <>
             <Cube
-                position={[0, 2, 0.5]}
+                position={[-0.035, 1.9, 0.5]}
                 size={[1, 1, 1]}
                 goTo={new THREE.Vector3(0, 2, 1)}
                 lookAt={new THREE.Vector3(0, 1.8, 0)}

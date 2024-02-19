@@ -68,7 +68,7 @@ def getPrediction(filename):
 
     probability_results = round(probability_results * 100)
 
-    if probability_results < 90:
+    if probability_results < 85:
         answer = "Trash"
         category = 2
 

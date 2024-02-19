@@ -1,5 +1,10 @@
 import React, { Suspense, useRef, useState, useEffect } from "react";
-import { useGLTF, PerspectiveCamera, Text3D, Html } from "@react-three/drei";
+import {
+    useGLTF,
+    PerspectiveCamera,
+    Html,
+    MeshTransmissionMaterial,
+} from "@react-three/drei";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import Loading from "../components/Loading";
 import * as THREE from "three";
@@ -120,6 +125,22 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 and environmental impact.
             </p>
             <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+                Environmental Benefits
+            </h2>
+            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+                Electric vehicles significantly reduce greenhouse gases and
+                pollution, which contributes to cleaner air and mitigating
+                climate change. Electric cars produce on average 150 less grams
+                of CO2 than gasoline cars per mile and create 3,932 lbs. of CO2
+                equivalent per year, compared to 6,248 lbs. for hybrid cars, and
+                11,435 lbs. for gasoline cars. Electric cars especially emit
+                less carbon in states that heavily utilize hydropower like
+                Washington, where the power grid has a much lower carbon
+                intensity. Moreover, the growing popularity of electric cars
+                stimulates advancements in renewable energy technology and job
+                creation within the clean energy sector.
+            </p>
+            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
                 Costs
             </h2>
             <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
@@ -130,18 +151,12 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 thousands of dollars depending on your needs.
             </p>
             <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
-                Benefits
-            </h2>
-            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
-                Electric vehicles significantly reduce greenhouse gases and
-                pollution, which contributes to cleaner air and mitigating
-                climate change. Moreover, the growing popularity of electric
-                cars stimulates advancements in renewable energy technology and
-                job creation within the clean energy sector.
-            </p>
-            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
                 Tax Rebates
             </h2>
+            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+                If you purchase an electric car starting from 2023 to 2032 you
+                can qualify for a tax rebate of up to $7,500
+            </p>
         </div>
     );
 
@@ -279,6 +294,72 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
     );
 };
 
+const Message = () => {
+    const [showText, setShowText] = useState(true);
+    const [dontShowAgain, setDontShowAgain] = useState(false);
+
+    useEffect(() => {
+        const dontShowAgainValue = localStorage.getItem("dontShowAgain");
+        if (dontShowAgainValue) {
+            setShowText(false);
+            setDontShowAgain(true);
+        }
+    }, []);
+
+    const handleCheckboxChange = (event) => {
+        const { checked } = event.target;
+        setDontShowAgain(checked);
+        if (checked) {
+            localStorage.setItem("dontShowAgain", "true");
+        } else {
+            localStorage.removeItem("dontShowAgain");
+        }
+    };
+
+    return (
+        <>
+            <Html fullscreen>
+                {showText && (
+                    <div
+                        className="flex flex-col justify-center items-center w-[100vw] h-[100vh] mx-auto text-white text-center bg-gray-900 shadow-md bg-opacity-85"
+                        onClick={(event) => {
+                            event.stopPropagation();
+                        }}
+                    >
+                        <div>
+                            <h1 className="text-6xl font-bold">
+                                Welcome to the garage!
+                            </h1>
+                            <p className="text-2xl mt-10 max-w-6xl">
+                                Click on objects to learn about eco-friendly
+                                energy solutions for homes. Clickable objects
+                                will be highlighted when hovered over.
+                            </p>
+                        </div>
+                        <div className="mt-10 flex flex-col items-center">
+                            <label className="text-2xl">
+                                <input
+                                    type="checkbox"
+                                    checked={dontShowAgain}
+                                    onChange={handleCheckboxChange}
+                                    className="mr-2 h-4 w-4"
+                                />
+                                Don't show this message again
+                            </label>
+                            <button
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+                                onClick={() => setShowText(false)}
+                            >
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </Html>
+        </>
+    );
+};
+
 const Garage = () => {
     return (
         <div className="w-screen h-screen bg-gray-600">
@@ -287,12 +368,13 @@ const Garage = () => {
                     <Canvas>
                         {/* <CameraControls /> */}
                         <GarageModel />
+                        <Message />
                         <Cube
                             position={[-1.4, 0.75, -2]}
                             size={[3.2, 2, 5]}
                             goTo={new THREE.Vector3(0.2, 1, -6.5)}
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
-                            textPosition={[3, 2.5, -4.1]}
+                            textPosition={[3, 2.6, -4.1]}
                             num={1}
                         />
                         <Cube
