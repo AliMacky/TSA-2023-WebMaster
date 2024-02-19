@@ -119,7 +119,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
             <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
                 Electric Cars
             </h1>
-            <p className="text-xsm leading-relaxed tracking-normal mt-6">
+            <p className="leading-relaxed tracking-normal mt-6">
                 Electric cars, a modern marvel of sustainable transportation,
                 come in various types with differences in performance, costs,
                 and environmental impact.
@@ -127,7 +127,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
             <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
                 Environmental Benefits
             </h2>
-            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+            <p className="leading-relaxed tracking-normal mt-3 ">
                 Electric vehicles significantly reduce greenhouse gases and
                 pollution, which contributes to cleaner air and mitigating
                 climate change. Electric cars produce on average 150 less grams
@@ -143,7 +143,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
             <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
                 Costs
             </h2>
-            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+            <p className="leading-relaxed tracking-normal mt-3 ">
                 Costs associated with electric cars can vary due to a variety of
                 factors, including the initial purchase price, charging
                 infrastructure, and operational expenses. The upfront cost of an
@@ -153,7 +153,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
             <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
                 Tax Rebates
             </h2>
-            <p className="text-xsm leading-relaxed tracking-normal mt-3 ">
+            <p className="leading-relaxed tracking-normal mt-3 ">
                 If you purchase an electric car starting from 2023 to 2032 you
                 can qualify for a tax rebate of up to $7,500
             </p>
