@@ -162,7 +162,7 @@ const Form = () => {
     return (
         <>
             <Html
-                position={[10, 30, (-1 * screenSize.width) / 60]}
+                position={[10, 30, (-1 * screenSize.width) / 80]}
                 // style={{ transform: `scale(${scale})` }}
             >
                 <div className="w-[30vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
@@ -233,7 +233,7 @@ const Info = () => {
     const [position, setPosition] = useState([0, 22.7, 1.6]);
     return (
         <Html
-            position={[10, 30, screenSize.width / 200]}
+            position={[10, 30, screenSize.width / 260]}
             // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
             <div className="w-[30vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
