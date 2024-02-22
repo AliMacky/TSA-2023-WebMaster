@@ -117,18 +117,18 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
             >
                 <MdOutlineCancel />
             </button>
-            <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
+            <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Electric Cars
             </h1>
-            <p className="leading-relaxed tracking-normal mt-6">
+            <p className="text-sm lg:text-base leading-relaxed tracking-normal mt-6">
                 Electric cars, a modern marvel of sustainable transportation,
                 come in various types with differences in performance, costs,
                 and environmental impact.
             </p>
-            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+            <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal mt-3">
                 Environmental Benefits
             </h2>
-            <p className="leading-relaxed tracking-normal mt-3 ">
+            <p className=" text-sm lg:text-base leading-relaxed tracking-normal mt-3 ">
                 Electric vehicles significantly reduce greenhouse gases and
                 pollution, which contributes to cleaner air and mitigating
                 climate change. Electric cars produce on average 150 less grams
@@ -141,20 +141,20 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 stimulates advancements in renewable energy technology and job
                 creation within the clean energy sector.
             </p>
-            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+            <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal mt-3">
                 Costs
             </h2>
-            <p className="leading-relaxed tracking-normal mt-3 ">
+            <p className="text-sm lg:text-base leading-relaxed tracking-normal mt-3 ">
                 Costs associated with electric cars can vary due to a variety of
                 factors, including the initial purchase price, charging
                 infrastructure, and operational expenses. The upfront cost of an
                 electric car can range anywhere from $20,000 to hundreds of
                 thousands of dollars depending on your needs.
             </p>
-            <h2 className="text-3xl leading-relaxed tracking-normal mt-3">
+            <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal mt-3">
                 Tax Rebates
             </h2>
-            <p className="leading-relaxed tracking-normal mt-3 ">
+            <p className="text-sm lg:text-base leading-relaxed tracking-normal mt-3 ">
                 If you purchase an electric car starting from 2023 to 2032 you
                 can qualify for a tax rebate of up to $7,500
             </p>
@@ -328,17 +328,17 @@ const Message = () => {
                         }}
                     >
                         <div>
-                            <h1 className="text-6xl font-bold">
+                            <h1 className=" text-3xl lg:text-6xl font-bold">
                                 Welcome to the garage!
                             </h1>
-                            <p className="text-2xl mt-10 max-w-6xl">
+                            <p className="text-base lg:text-2xl mt-10 max-w-6xl">
                                 Click on objects to learn about eco-friendly
                                 energy solutions for homes. Clickable objects
                                 will be highlighted when hovered over.
                             </p>
                         </div>
                         <div className="mt-10 flex flex-col items-center">
-                            <label className="text-2xl">
+                            <label className=" text-base lg:text-2xl">
                                 <input
                                     type="checkbox"
                                     checked={dontShowAgain}
@@ -362,7 +362,6 @@ const Message = () => {
 };
 
 const Garage = () => {
-    const screenSize = useScreenSize();
     return (
         <div className="w-screen h-screen bg-gray-600">
             <div style={{ width: "100vw", height: "100vh" }}>
