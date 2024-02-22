@@ -1,10 +1,5 @@
 import React, { Suspense, useRef, useState, useEffect } from "react";
-import {
-    useGLTF,
-    PerspectiveCamera,
-    Html,
-    MeshTransmissionMaterial,
-} from "@react-three/drei";
+import { useGLTF, PerspectiveCamera, Html } from "@react-three/drei";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import Loading from "../components/Loading";
 import * as THREE from "three";
@@ -14,12 +9,18 @@ import { calculateRotation } from "../calculateRotation";
 import "../index.css";
 import { MdOutlineCancel } from "react-icons/md";
 
+let scale = 1;
+if (window.innerWidth < 600) scale = 2;
 const origin = new THREE.Vector3(0, 0, 0);
-const cameraStartPosition = new THREE.Vector3(-2, 3, -7);
+const cameraStartPosition = new THREE.Vector3(
+    -2 * scale,
+    3 * scale,
+    -7 * scale
+);
 
 const GarageModel = () => {
     const { camera } = useThree();
-    camera.position.set(-2, 3, -7);
+    camera.position.set(-2 * scale, 3 * scale, -7 * scale);
     camera.lookAt(0, 0, 0);
     const directionalLightRef = useRef();
 
@@ -104,7 +105,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
     };
 
     const carText = (
-        <div className="w-[40vw] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
             <button
                 className="absolute top-2 left-2 text-white text-5xl p-2"
                 onClick={() => {
@@ -161,7 +162,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
     );
 
     const solarPowerText = (
-        <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
             <button
                 className="absolute top-2 left-2 text-white text-5xl p-2"
                 onClick={() => {
@@ -208,7 +209,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
     );
 
     const heatingText = (
-        <div className="w-[600px] text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
             <button
                 className="absolute top-2 left-2 text-white text-5xl p-2"
                 onClick={() => {
@@ -361,6 +362,7 @@ const Message = () => {
 };
 
 const Garage = () => {
+    const screenSize = useScreenSize();
     return (
         <div className="w-screen h-screen bg-gray-600">
             <div style={{ width: "100vw", height: "100vh" }}>
@@ -374,7 +376,7 @@ const Garage = () => {
                             size={[3.2, 2, 5]}
                             goTo={new THREE.Vector3(0.2, 1, -6.5)}
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
-                            textPosition={[3, 2.6, -4.1]}
+                            textPosition={[window.innerWidth / 560, 2.6, -4.1]}
                             num={1}
                         />
                         <Cube
@@ -382,7 +384,11 @@ const Garage = () => {
                             size={[1, 2, 1.5]}
                             goTo={new THREE.Vector3(1, 0.5, 0)}
                             lookAt={new THREE.Vector3(3.5, 0.5, 0)}
-                            textPosition={[2.4, 1.35, -1.6]}
+                            textPosition={[
+                                4032 / window.innerWidth,
+                                2268 / window.innerWidth,
+                                -1.6,
+                            ]}
                             num={2}
                         />
                         <Cube
@@ -390,7 +396,11 @@ const Garage = () => {
                             size={[0.6, 0.8, 1]}
                             goTo={new THREE.Vector3(1.8, 1.15, -3.5)}
                             lookAt={new THREE.Vector3(10, 1.15, -3.5)}
-                            textPosition={[3, 1.85, -4.9]}
+                            textPosition={[
+                                5040 / window.innerWidth,
+                                3108 / window.innerWidth,
+                                -4.9,
+                            ]}
                             num={3}
                         />
                     </Canvas>
