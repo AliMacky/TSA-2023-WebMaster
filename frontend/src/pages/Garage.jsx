@@ -8,9 +8,12 @@ import { smoothAnimation } from "../smoothAnimation";
 import { calculateRotation } from "../calculateRotation";
 import "../index.css";
 import { MdOutlineCancel } from "react-icons/md";
+import { FaTrashAlt, FaCalculator } from "react-icons/fa";
+import { PiGarageBold } from "react-icons/pi";
+import { IoIosHome } from "react-icons/io";
 
 let scale = 1;
-if (window.innerWidth < 600) scale = 2;
+if (window.innerWidth < 900) scale = 2;
 const origin = new THREE.Vector3(0, 0, 0);
 const cameraStartPosition = new THREE.Vector3(
     -2 * scale,
@@ -41,7 +44,15 @@ const GarageModel = () => {
     );
 };
 
-const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
+const Cube = ({
+    position,
+    size,
+    goTo,
+    lookAt,
+    textPosition,
+    num,
+    setShowButtons,
+}) => {
     const [clicked, setClicked] = useState(false);
     const [cubeOpacity, setCubeOpacity] = useState(0);
     const [view, setView] = useState(0);
@@ -85,6 +96,7 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 moveCamera(0);
                 setView(1);
                 setCubeOpacity(0);
+                setShowButtons(false);
                 setTimeout(() => {
                     setClicked(true);
                     if (num === 1) {
@@ -100,6 +112,9 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                 setClicked(false);
                 setText();
                 setView(0);
+                setTimeout(() => {
+                    setShowButtons(true);
+                }, 1000);
             }
         }
     };
@@ -113,6 +128,9 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                     setClicked(false);
                     setText();
                     setView(0);
+                    setTimeout(() => {
+                        setShowButtons(true);
+                    }, 1000);
                 }}
             >
                 <MdOutlineCancel />
@@ -170,6 +188,9 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                     setClicked(false);
                     setText();
                     setView(0);
+                    setTimeout(() => {
+                        setShowButtons(true);
+                    }, 1000);
                 }}
             >
                 <MdOutlineCancel />
@@ -217,6 +238,9 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
                     setClicked(false);
                     setText();
                     setView(0);
+                    setTimeout(() => {
+                        setShowButtons(true);
+                    }, 1000);
                 }}
             >
                 <MdOutlineCancel />
@@ -295,9 +319,10 @@ const Cube = ({ position, size, goTo, lookAt, textPosition, num }) => {
     );
 };
 
-const Message = () => {
+const Message = ({ showButtons }) => {
     const [showText, setShowText] = useState(true);
     const [dontShowAgain, setDontShowAgain] = useState(false);
+    const { camera } = useThree();
 
     useEffect(() => {
         const dontShowAgainValue = localStorage.getItem("dontShowAgain");
@@ -356,12 +381,37 @@ const Message = () => {
                         </div>
                     </div>
                 )}
+                {!showText && showButtons && (
+                    <div className="flex flex-row p-1 ">
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() => (window.top.location.href = "/")}
+                        >
+                            <IoIosHome className="text-5xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() => (window.top.location.href = "/")}
+                        >
+                            <FaCalculator className="text-4xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() =>
+                                (window.top.location.href = "/trash")
+                            }
+                        >
+                            <FaTrashAlt className="text-4xl" />
+                        </button>
+                    </div>
+                )}
             </Html>
         </>
     );
 };
 
 const Garage = () => {
+    const [showButtons, setShowButtons] = useState(true);
     return (
         <div className="w-screen h-screen bg-gray-600">
             <div style={{ width: "100vw", height: "100vh" }}>
@@ -369,7 +419,7 @@ const Garage = () => {
                     <Canvas>
                         {/* <CameraControls /> */}
                         <GarageModel />
-                        <Message />
+                        <Message showButtons={showButtons} />
                         <Cube
                             position={[-1.4, 0.75, -2]}
                             size={[3.2, 2, 5]}
@@ -377,6 +427,7 @@ const Garage = () => {
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
                             textPosition={[window.innerWidth / 560, 2.6, -4.1]}
                             num={1}
+                            setShowButtons={setShowButtons}
                         />
                         <Cube
                             position={[3.75, 0.5, 0.75]}
@@ -389,6 +440,7 @@ const Garage = () => {
                                 -1.6,
                             ]}
                             num={2}
+                            setShowButtons={setShowButtons}
                         />
                         <Cube
                             position={[2.6, 1.4, -3.3]}
@@ -401,6 +453,7 @@ const Garage = () => {
                                 -4.9,
                             ]}
                             num={3}
+                            setShowButtons={setShowButtons}
                         />
                     </Canvas>
                 </Suspense>

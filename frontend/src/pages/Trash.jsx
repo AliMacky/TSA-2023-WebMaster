@@ -162,11 +162,11 @@ const Form = () => {
     return (
         <>
             <Html
-                position={[10, 30, (-1 * screenSize.width) / 80]}
+                position={[10, 30, (-1 * screenSize.width) / 55]}
                 // style={{ transform: `scale(${scale})` }}
             >
-                <div className="w-[30vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
-                    <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
+                <div className="w-[40vw] lg:w-[35vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+                    <h1 className="text-2xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-2 lg:mb-6">
                         Waste Classifier
                     </h1>
                     <form onSubmit={handleSubmit} className="mt-4">
@@ -174,7 +174,7 @@ const Form = () => {
                             type="file"
                             accept="image/*"
                             onChange={handleImageChange}
-                            className="w-full py-2 px-4 mb-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring focus:border-blue-300"
+                            className="text-xxxs lg:text-base w-full py-2 px-4 mb-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {imageUrl && (
                             <div>
@@ -233,14 +233,14 @@ const Info = () => {
     const [position, setPosition] = useState([0, 22.7, 1.6]);
     return (
         <Html
-            position={[10, 30, screenSize.width / 260]}
+            position={[10, 30, screenSize.width / 370]}
             // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
-            <div className="w-[30vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
-                <h1 className="text-4xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-6">
+            <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+                <h1 className="text-2xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-2 lg:mb-6">
                     More Info
                 </h1>
-                <p>
+                <p className="text-xs lg:text-base">
                     {screenSize.width} {screenSize.height} Lorem ipsum dolor sit
                     amet, consectetur adipiscing elit. Ut sit amet mi in elit
                     efficitur gravida consequat vitae elit. Aliquam blandit nibh
