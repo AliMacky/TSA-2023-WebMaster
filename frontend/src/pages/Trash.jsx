@@ -7,6 +7,10 @@ import { gsap } from "gsap";
 import { smoothAnimation } from "../smoothAnimation";
 import { calculateRotation } from "../calculateRotation";
 import axios from "axios";
+import { MdOutlineCancel } from "react-icons/md";
+import { FaTrashAlt, FaCalculator } from "react-icons/fa";
+import { PiGarageBold } from "react-icons/pi";
+import { IoIosHome } from "react-icons/io";
 
 const origin = new THREE.Vector3(0, 11, 0);
 const cameraStartPosition = new THREE.Vector3(-17, 11, 0);
@@ -227,10 +231,35 @@ const Form = () => {
     );
 };
 
+const Buttons = () => {
+    return (
+        <Html fullscreen style={{ transform: "translate3d(1%,20%,0)" }}>
+            <div className="flex flex-col p-1 ">
+                <button
+                    className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                    onClick={() => (window.top.location.href = "/")}
+                >
+                    <IoIosHome className="text-5xl" />
+                </button>
+                <button
+                    className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                    onClick={() => (window.top.location.href = "/garage")}
+                >
+                    <PiGarageBold className="text-5xl" />
+                </button>
+                <button
+                    className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                    onClick={() => (window.top.location.href = "/")}
+                >
+                    <FaCalculator className="text-4xl" />
+                </button>
+            </div>
+        </Html>
+    );
+};
+
 const Info = () => {
     const screenSize = useScreenSize();
-    const [scale, setScale] = useState(1);
-    const [position, setPosition] = useState([0, 22.7, 1.6]);
     return (
         <Html
             position={[10, 30, screenSize.width / 370]}
@@ -263,6 +292,7 @@ const Trash = () => {
                 <Suspense fallback={<Loading />}>
                     <Canvas>
                         {/* <CameraControls /> */}
+                        <Buttons />
                         <GarbageBinsModel />
                         <Form />
                         <Info />

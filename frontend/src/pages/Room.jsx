@@ -82,11 +82,7 @@ const Cube = ({ position, size, goTo, lookAt }) => {
                 }}
             >
                 <boxGeometry args={size} />
-                <meshStandardMaterial
-                    color={"white"}
-                    opacity={0.2}
-                    transparent
-                />
+                <meshStandardMaterial color={"white"} opacity={0} transparent />
                 {/* <TextMesh args={[textPosition, textRotation]}  /> */}
             </mesh>
 
@@ -107,14 +103,16 @@ const Scene = () => {
         "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
     );
     const directionalLightRef = useRef();
+    let gotoZ = 1;
+    if (window.innerWidth < 900) gotoZ = 2;
 
     return (
         // <Suspense fallback={<Loading />}>
         <>
             <Cube
-                position={[-0.035, 1.9, 0.5]}
-                size={[1, 1, 1]}
-                goTo={new THREE.Vector3(0, 2, 1)}
+                position={[-0.035, 1.9, -0.5]}
+                size={[100, 100, 1]}
+                goTo={new THREE.Vector3(0, 2, gotoZ)}
                 lookAt={new THREE.Vector3(0, 1.8, 0)}
                 textRotation={[0, Math.PI / 4, 0]}
                 textPosition={[-0.5, 1, -0.5]}

@@ -10,7 +10,9 @@ import "../index.css";
 import { MdOutlineCancel } from "react-icons/md";
 import { FaTrashAlt, FaCalculator } from "react-icons/fa";
 import { PiGarageBold } from "react-icons/pi";
-import { IoIosHome } from "react-icons/io";
+import { IoIosHome, IoIosLeaf } from "react-icons/io";
+import { AiOutlineDollar } from "react-icons/ai";
+import { TbMoneybag } from "react-icons/tb";
 
 let scale = 1;
 if (window.innerWidth < 900) scale = 2;
@@ -120,9 +122,9 @@ const Cube = ({
     };
 
     const carText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
             <button
-                className="absolute top-2 left-2 text-white text-5xl p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-2xl lg:text-5xl p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
@@ -138,51 +140,64 @@ const Cube = ({
             <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Electric Cars
             </h1>
-            <p className="text-sm lg:text-base leading-relaxed tracking-normal mt-6">
-                Electric cars, a modern marvel of sustainable transportation,
-                come in various types with differences in performance, costs,
-                and environmental impact.
-            </p>
-            <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal mt-3">
-                Environmental Benefits
-            </h2>
-            <p className=" text-sm lg:text-base leading-relaxed tracking-normal mt-3 ">
-                Electric vehicles significantly reduce greenhouse gases and
-                pollution, which contributes to cleaner air and mitigating
-                climate change. Electric cars produce on average 150 less grams
-                of CO2 than gasoline cars per mile and create 3,932 lbs. of CO2
-                equivalent per year, compared to 6,248 lbs. for hybrid cars, and
-                11,435 lbs. for gasoline cars. Electric cars especially emit
-                less carbon in states that heavily utilize hydropower like
-                Washington, where the power grid has a much lower carbon
-                intensity. Moreover, the growing popularity of electric cars
-                stimulates advancements in renewable energy technology and job
-                creation within the clean energy sector.
-            </p>
-            <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal mt-3">
-                Costs
-            </h2>
-            <p className="text-sm lg:text-base leading-relaxed tracking-normal mt-3 ">
-                Costs associated with electric cars can vary due to a variety of
-                factors, including the initial purchase price, charging
-                infrastructure, and operational expenses. The upfront cost of an
-                electric car can range anywhere from $20,000 to hundreds of
-                thousands of dollars depending on your needs.
-            </p>
-            <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal mt-3">
-                Tax Rebates
-            </h2>
-            <p className="text-sm lg:text-base leading-relaxed tracking-normal mt-3 ">
-                If you purchase an electric car starting from 2023 to 2032 you
-                can qualify for a tax rebate of up to $7,500
-            </p>
+            <div className="rounded-lg bg-gray-800 p-3 mt-4 relative">
+                <IoIosLeaf className="text-green-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+
+                <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                    Environmental Benefits
+                </h2>
+                <div className="flex lg:flex-row flex-col justify-center items-center">
+                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-1 lg:p-2">
+                        The use of electric cars is a great practice that can
+                        contribute to cleaner air and mitigating climate change.
+                        Electric cars emit significantly less greenhouse gases
+                        and pollution compared to gas vehicles, producing on
+                        average 150 less grams of CO2 per mile. They especially
+                        emit less in states that heavily utilize hydropower such
+                        as Washington. Moreover, the growing popularity of
+                        electric cars stimulates advancements in renewable
+                        energy technology and job creation within the clean
+                        energy sector.
+                    </p>
+                    <img
+                        src="../src/assets/electriccar.jpg"
+                        alt="Electric car"
+                        className="w-4/6 lg:w-1/3 ml-2 p-2 rounded-2xl"
+                    />
+                </div>
+            </div>
+            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
+                <AiOutlineDollar className="text-yellow-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                    Costs
+                </h2>
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-2">
+                    Costs associated with electric cars can vary anywhere from
+                    $20,000 to hundreds of thousands of dollars due to a variety
+                    of factors, such as the initial purchase price, charging
+                    infrastructure, and operational expenses. When compared them
+                    to their gas counterparts, electric cars are generally more
+                    expensive, however the gap has been closing recently.
+                </p>
+            </div>
+            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
+                <TbMoneybag className="text-yellow-700 absolute top-3 left-3 text-xl lg:text-3xl" />
+                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                    Tax Rebates
+                </h2>
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
+                    According to the IRS, if you purchase an electric car
+                    starting from 2023 to 2032 you can qualify for a tax rebate
+                    of up to $7,500.
+                </p>
+            </div>
         </div>
     );
 
     const solarPowerText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
             <button
-                className="absolute top-2 left-2 text-white text-5xl p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-2xl lg:text-5xl p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
@@ -195,44 +210,68 @@ const Cube = ({
             >
                 <MdOutlineCancel />
             </button>
-            <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
+            <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Solar Power
             </h1>
-            <p className="text-lg leading-relaxed tracking-normal mt-6">
-                <p>
-                    Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius
-                    qui laudantium excepturi aut repellendus odio. Est
-                    voluptatum corporis vel laudantium rerum aut quibusdam sunt
-                    non quia architecto aut maiores magni. Ea nihil magni aut
-                    expedita assumenda sed veniam itaque non dolorem consequatur
-                    sit rerum incidunt sed consequuntur nesciunt.{" "}
+            <div className="rounded-lg bg-gray-800 p-3 mt-4 relative">
+                <IoIosLeaf className="text-green-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+
+                <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                    Environmental Benefits
+                </h2>
+                <div className="flex lg:flex-row flex-col justify-center items-center">
+                    <img
+                        src="../src/assets/solarpanel.jpg"
+                        alt="Solar Panel"
+                        className="w-4/6 lg:w-1/3 mr-2 p-2 rounded-2xl"
+                    />
+                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-1 lg:p-2">
+                        Solar is the most abundant energy source on earth, and
+                        is also increasingly easy to use. With residential solar
+                        power systems to harness this energy, switching to this
+                        green energy can positively impact the environment
+                        greatly. Solar power does not pollute or generate the
+                        same byproducts such as carbon dioxide and methane,
+                        gases harmful to our health and the environment.
+                        Switching to solar energy contributes to the global
+                        effort to end reliance on fossil fuels and shift toward
+                        sustainable energy.
+                    </p>
+                </div>
+            </div>
+            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
+                <AiOutlineDollar className="text-yellow-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                    Costs
+                </h2>
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-2">
+                    Many factors that can affect the cost of solar panels,
+                    including the type, size, and location of the system.
+                    According to Forbes and many experts, solar panels cost
+                    around $16,000 to install, but can vary from $4,000 to
+                    $36,000 depending on the model and size. According to the
+                    United States Department of Energy, the cost of solar has
+                    been dropping consistently since 2009.
                 </p>
-                <p>
-                    Et quos veniam ut ratione inventore vel culpa dignissimos id
-                    minus rerum et dicta enim aut illo voluptas. Eum ipsa iure
-                    aut rerum eius qui odio eaque ex aliquam perspiciatis. Et
-                    ipsa delectus 33 harum tempora eum quis commodi. Ab aliquid
-                    quaerat ut aperiam Quis rem adipisci autem aut nostrum
-                    corrupti vel necessitatibus totam hic autem repudiandae vel
-                    molestiae dignissimos!{" "}
+            </div>
+            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
+                <TbMoneybag className="text-yellow-700 absolute top-3 left-3 text-xl lg:text-3xl" />
+                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                    Tax Rebates
+                </h2>
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
+                    According to the IRS, investing in renewable energy for a
+                    home can qualify someone for a tax credit of 30%, meaning
+                    they will have to pay 30% less of their taxes.
                 </p>
-                <p>
-                    In consequatur labore sit nulla modi et labore corporis et
-                    alias excepturi. Aut voluptas consequuntur sit eius
-                    temporibus ea veniam consequuntur qui velit minima sit
-                    cupiditate dolorem. Et reiciendis magnam 33 atque voluptas
-                    id tempore amet quo dolorum autem ex reiciendis cupiditate
-                    et unde asperiores. Non iste rerum non facere accusantium
-                    rem suscipit obcaecati aut consequuntur Quis.{" "}
-                </p>
-            </p>
+            </div>
         </div>
     );
 
     const heatingText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-12">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
             <button
-                className="absolute top-2 left-2 text-white text-5xl p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-2xl lg:text-5xl p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
@@ -245,37 +284,55 @@ const Cube = ({
             >
                 <MdOutlineCancel />
             </button>
-            <h1 className="text-6xl font-bold text-shadow-md tracking-wide">
+            <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Heating
             </h1>
-            <p className="text-lg leading-relaxed tracking-normal mt-6">
-                <p>
-                    Lorem ipsum dolor sit amet. Et impedit velit et dolorem eius
-                    qui laudantium excepturi aut repellendus odio. Est
-                    voluptatum corporis vel laudantium rerum aut quibusdam sunt
-                    non quia architecto aut maiores magni. Ea nihil magni aut
-                    expedita assumenda sed veniam itaque non dolorem consequatur
-                    sit rerum incidunt sed consequuntur nesciunt.{" "}
+            <div className="rounded-lg bg-gray-800 p-3 mt-4 relative">
+                <IoIosLeaf className="text-green-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+
+                <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                    Environmental Benefits
+                </h2>
+                <div className="flex lg:flex-row flex-col justify-center items-center">
+                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-1 lg:p-2">
+                        Residential buildings account for 5 billion tons of
+                        greenhouse gases each year, with a significant portion
+                        caused by heating. One of the easiest and most effective
+                        ways a homeowner can lower their carbon footprint is by
+                        installing electric heat pumps. These pumps not run off
+                        renewable energy instead of fuel, but are also much more
+                        energy-efficient than furnaces and boilers.
+                    </p>
+                    <img
+                        src="../src/assets/heatpump.jpg"
+                        alt="Electric car"
+                        className="w-4/6 lg:w-1/3 ml-2 p-2 rounded-2xl"
+                    />
+                </div>
+            </div>
+            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
+                <AiOutlineDollar className="text-yellow-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                    Costs
+                </h2>
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-2">
+                    Heat pumps cost around $5,000 to $10,000, a similar amount
+                    compared to furnaces and boilers. It is always recommended
+                    to buy Energy Star labeled products as they are the most
+                    energy efficient.
                 </p>
-                <p>
-                    Et quos veniam ut ratione inventore vel culpa dignissimos id
-                    minus rerum et dicta enim aut illo voluptas. Eum ipsa iure
-                    aut rerum eius qui odio eaque ex aliquam perspiciatis. Et
-                    ipsa delectus 33 harum tempora eum quis commodi. Ab aliquid
-                    quaerat ut aperiam Quis rem adipisci autem aut nostrum
-                    corrupti vel necessitatibus totam hic autem repudiandae vel
-                    molestiae dignissimos!{" "}
+            </div>
+            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
+                <TbMoneybag className="text-yellow-700 absolute top-3 left-3 text-xl lg:text-3xl" />
+                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                    Tax Rebates
+                </h2>
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
+                    Homeowners who make energy-efficient improvements to their
+                    home including the installation of electric heat pumps can
+                    qualify for a tax rebate of $3,200
                 </p>
-                <p>
-                    In consequatur labore sit nulla modi et labore corporis et
-                    alias excepturi. Aut voluptas consequuntur sit eius
-                    temporibus ea veniam consequuntur qui velit minima sit
-                    cupiditate dolorem. Et reiciendis magnam 33 atque voluptas
-                    id tempore amet quo dolorum autem ex reiciendis cupiditate
-                    et unde asperiores. Non iste rerum non facere accusantium
-                    rem suscipit obcaecati aut consequuntur Quis.{" "}
-                </p>
-            </p>
+            </div>
         </div>
     );
 
@@ -425,7 +482,7 @@ const Garage = () => {
                             size={[3.2, 2, 5]}
                             goTo={new THREE.Vector3(0.2, 1, -6.5)}
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
-                            textPosition={[window.innerWidth / 560, 2.6, -4.1]}
+                            textPosition={[window.innerWidth / 550, 2.7, -4.1]}
                             num={1}
                             setShowButtons={setShowButtons}
                         />
@@ -436,7 +493,7 @@ const Garage = () => {
                             lookAt={new THREE.Vector3(3.5, 0.5, 0)}
                             textPosition={[
                                 4032 / window.innerWidth,
-                                2268 / window.innerWidth,
+                                2520 / window.innerWidth,
                                 -1.6,
                             ]}
                             num={2}
@@ -449,7 +506,7 @@ const Garage = () => {
                             lookAt={new THREE.Vector3(10, 1.15, -3.5)}
                             textPosition={[
                                 5040 / window.innerWidth,
-                                3108 / window.innerWidth,
+                                3208 / window.innerWidth,
                                 -4.9,
                             ]}
                             num={3}
