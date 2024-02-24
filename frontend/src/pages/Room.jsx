@@ -11,6 +11,15 @@ import * as THREE from "three";
 import { Html, useGLTF, useHelper, PerspectiveCamera } from "@react-three/drei";
 import { smoothAnimation } from "../smoothAnimation";
 import { calculateRotation } from "../calculateRotation";
+import {
+    FaTrashAlt,
+    FaCalculator,
+    FaSearch,
+    FaFolderMinus,
+    FaTrash,
+} from "react-icons/fa";
+import { PiGarageBold } from "react-icons/pi";
+
 // import ModelViewer from "../ModelViewer";
 
 const origin = new THREE.Vector3(0, 1, 0);
@@ -56,6 +65,7 @@ const Cube = ({ position, size, goTo, lookAt }) => {
     const objectRef = useRef();
     const cameraCubeRef = useRef();
     const [clicked, setClicked] = useState(false);
+    const [showButtons, setShowButtons] = useState(false);
     const { camera } = useThree();
     const target = lookAt;
     useFrame(() => {});
@@ -79,12 +89,50 @@ const Cube = ({ position, size, goTo, lookAt }) => {
                 onClick={(event) => {
                     event.stopPropagation();
                     setClicked(!clicked);
+                    if (!clicked) {
+                        setTimeout(() => {
+                            setShowButtons(true);
+                        }, 1000);
+                    } else {
+                        setShowButtons(false);
+                    }
                 }}
             >
                 <boxGeometry args={size} />
                 <meshStandardMaterial color={"white"} opacity={0} transparent />
                 {/* <TextMesh args={[textPosition, textRotation]}  /> */}
             </mesh>
+
+            {showButtons && window.innerWidth < 500 && (
+                <Html position={[-0.41, 2.23, 0.5]}>
+                    <div className="flex flex-row p-1 ">
+                        <button
+                            className="flex items-center justify-center font-kanit p-1 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/garage")
+                            }
+                        >
+                            <PiGarageBold className="text-xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/garage")
+                            }
+                        >
+                            <FaCalculator />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/garage")
+                            }
+                        >
+                            <FaTrashAlt />
+                        </button>
+                    </div>
+                </Html>
+            )}
 
             <PerspectiveCamera
                 ref={cameraCubeRef}

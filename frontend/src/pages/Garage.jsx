@@ -15,7 +15,9 @@ import { AiOutlineDollar } from "react-icons/ai";
 import { TbMoneybag } from "react-icons/tb";
 
 let scale = 1;
+let width = window.innerWidth;
 if (window.innerWidth < 900) scale = 2;
+if (window.innerWidth > 1680) width = 1680;
 const origin = new THREE.Vector3(0, 0, 0);
 const cameraStartPosition = new THREE.Vector3(
     -2 * scale,
@@ -483,7 +485,7 @@ const Garage = () => {
                             size={[3.2, 2, 5]}
                             goTo={new THREE.Vector3(0.2, 1, -6.5)}
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
-                            textPosition={[window.innerWidth / 550, 2.7, -4.1]}
+                            textPosition={[width / 550, 2.7, -4.1]}
                             num={1}
                             setShowButtons={setShowButtons}
                         />
@@ -492,11 +494,7 @@ const Garage = () => {
                             size={[1, 2, 1.5]}
                             goTo={new THREE.Vector3(1, 0.5, 0)}
                             lookAt={new THREE.Vector3(3.5, 0.5, 0)}
-                            textPosition={[
-                                4032 / window.innerWidth,
-                                2520 / window.innerWidth,
-                                -1.6,
-                            ]}
+                            textPosition={[4032 / width, 2520 / width, -1.6]}
                             num={2}
                             setShowButtons={setShowButtons}
                         />
@@ -505,11 +503,7 @@ const Garage = () => {
                             size={[0.6, 0.8, 1]}
                             goTo={new THREE.Vector3(1.8, 1.15, -3.5)}
                             lookAt={new THREE.Vector3(10, 1.15, -3.5)}
-                            textPosition={[
-                                5040 / window.innerWidth,
-                                3208 / window.innerWidth,
-                                -4.9,
-                            ]}
+                            textPosition={[5040 / width, 3208 / width, -4.9]}
                             num={3}
                             setShowButtons={setShowButtons}
                         />
