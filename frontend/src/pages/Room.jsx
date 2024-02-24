@@ -26,7 +26,7 @@ const RoomModel = () => {
 };
 
 const iFrameStyle = {
-    width: "670px",
+    width: "682px",
     height: "570px",
     border: "none",
     borderRadius: "20px",

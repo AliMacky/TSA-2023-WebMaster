@@ -48,7 +48,7 @@ const GarbageBinsModel = () => {
     const directionalLightRef = useRef();
 
     // Load the 3D model using GLTFLoader
-    const model = useGLTF("models/garbagebins2.glb");
+    const model = useGLTF("models/garbagebins.glb");
     return (
         <>
             <primitive object={model.scene} />

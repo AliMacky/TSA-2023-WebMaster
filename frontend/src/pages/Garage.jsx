@@ -426,6 +426,7 @@ const Message = ({ showButtons }) => {
                                     checked={dontShowAgain}
                                     onChange={handleCheckboxChange}
                                     className="mr-2 h-4 w-4"
+                                    id="asdfghjkl"
                                 />
                                 Don't show this message again
                             </label>
