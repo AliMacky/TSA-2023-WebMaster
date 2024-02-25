@@ -90,26 +90,25 @@ const Form = ({ setShowButtons }) => {
     };
 
     const onImageSubmit = async (image) => {
-        moveCamera(1);
         setShowButtons(false);
-        // const formData = new FormData();
-        // formData.append("file", image);
-        // setLoading(true);
+        const formData = new FormData();
+        formData.append("file", image);
+        setLoading(true);
 
-        // try {
-        //     const response = await axios.post(
-        //         "http://localhost:5000/predict",
-        //         formData
-        //     );
-        //     const prediction = response.data.prediction;
-        //     setCategory(prediction);
-        //     console.log(prediction, response.data.probability);
-        //     setLoading(false);
-        //     moveCamera(response.data.category);
-        // } catch (error) {
-        //     console.error("Error classifying image:", error);
-        // }
-        // console.log("Image submitted:", image);
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/predict",
+                formData
+            );
+            const prediction = response.data.prediction;
+            setCategory(prediction);
+            console.log(prediction, response.data.probability);
+            setLoading(false);
+            moveCamera(response.data.category);
+        } catch (error) {
+            console.error("Error classifying image:", error);
+        }
+        console.log("Image submitted:", image);
     };
 
     const moveCamera = async (category) => {
@@ -169,6 +168,7 @@ const Form = ({ setShowButtons }) => {
     if (screenSize.height < 800) x = 3;
     else if (screenSize.height > 1000) x = -3;
     else x = 0.5;
+    if (screenSize.width > 2000) x = -10;
 
     return (
         <>
@@ -286,7 +286,7 @@ const Message = ({ showButtons }) => {
                                     practice that benefits the environment and
                                     promotes sustainability. Our waste
                                     classifier, powered by machine learning, can
-                                    classify images of waste fairly correctly.
+                                    classify images of waste fairly accurately.
                                 </p>
                             </div>
                         </div>

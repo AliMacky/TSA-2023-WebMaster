@@ -13,6 +13,7 @@ module.exports = {
         },
         screens: {
             lg: "1025px",
+            xl: "1600px",
         },
     },
     plugins: [],

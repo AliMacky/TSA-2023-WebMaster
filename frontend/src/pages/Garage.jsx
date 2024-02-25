@@ -134,7 +134,7 @@ const Cube = ({
     };
 
     const carText = (
-        <div className="w-[90vw] lg:w-[40vw] max-h-[85vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+        <div className="w-[90vw] max-w-[700px] lg:w-[40vw] max-h-[85vh] lg:max-h-[90vh] overflow-y-scroll xl:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
                 className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-lg lg:text-5xl lg:p-2"
                 onClick={() => {
@@ -208,7 +208,7 @@ const Cube = ({
     );
 
     const solarPowerText = (
-        <div className="w-[90vw] lg:w-[40vw] max-h-[85vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+        <div className="w-[90vw] max-w-[700px] lg:w-[40vw] max-h-[85vh] lg:max-h-[90vh] overflow-y-scroll xl:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
                 className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-lg lg:text-5xl lg:p-2"
                 onClick={() => {
@@ -283,7 +283,7 @@ const Cube = ({
     );
 
     const heatingText = (
-        <div className="w-[90vw] lg:w-[40vw] max-h-[85vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+        <div className="w-[90vw] max-w-[700px] lg:w-[40vw] max-h-[85vh] lg:max-h-[90vh] overflow-y-scroll xl:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
                 className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-lg lg:text-5xl lg:p-2"
                 onClick={() => {
