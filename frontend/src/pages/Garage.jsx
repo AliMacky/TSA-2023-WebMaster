@@ -13,11 +13,14 @@ import { PiGarageBold } from "react-icons/pi";
 import { IoIosHome, IoIosLeaf } from "react-icons/io";
 import { AiOutlineDollar } from "react-icons/ai";
 import { TbMoneybag } from "react-icons/tb";
+import electricCar from "../assets/electriccar.jpg";
+import solarPanel from "../assets/solarpanel.jpg";
+import heatPump from "../assets/heatpump.jpg";
 
 let scale = 1;
 let width = window.innerWidth;
-if (window.innerWidth < 900) scale = 2;
-if (window.innerWidth > 1680) width = 1680;
+if (window.innerWidth < 1100) scale = 2;
+if (window.innerWidth > 1800) width = 1800;
 const origin = new THREE.Vector3(0, 0, 0);
 const cameraStartPosition = new THREE.Vector3(
     -2 * scale,
@@ -124,9 +127,9 @@ const Cube = ({
     };
 
     const carText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
-                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-2xl lg:text-5xl p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-xl lg:text-5xl lg:p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
@@ -142,10 +145,10 @@ const Cube = ({
             <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Electric Cars
             </h1>
-            <div className="rounded-lg bg-gray-800 p-3 mt-4 relative">
-                <IoIosLeaf className="text-green-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-4 relative">
+                <IoIosLeaf className="text-green-500 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
 
-                <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                <h2 className="text-2xl lg:text-3xl leading-snug tracking-normal">
                     Environmental Benefits
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
@@ -162,18 +165,18 @@ const Cube = ({
                         energy sector.
                     </p>
                     <img
-                        src="../src/assets/electriccar.jpg"
+                        src={electricCar}
                         alt="Electric car"
                         className="w-4/6 lg:w-1/3 ml-2 p-2 rounded-2xl"
                     />
                 </div>
             </div>
-            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
-                <AiOutlineDollar className="text-yellow-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                <AiOutlineDollar className="text-yellow-500 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Costs
                 </h2>
-                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-2">
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2">
                     Costs associated with electric cars can vary anywhere from
                     $20,000 to hundreds of thousands of dollars due to a variety
                     of factors, such as the initial purchase price, charging
@@ -182,8 +185,8 @@ const Cube = ({
                     expensive, however the gap has been closing recently.
                 </p>
             </div>
-            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
-                <TbMoneybag className="text-yellow-700 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                <TbMoneybag className="text-yellow-700 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
@@ -197,9 +200,9 @@ const Cube = ({
     );
 
     const solarPowerText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
-                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-2xl lg:text-5xl p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-xl lg:text-5xl lg:p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
@@ -215,20 +218,20 @@ const Cube = ({
             <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Solar Power
             </h1>
-            <div className="rounded-lg bg-gray-800 p-3 mt-4 relative">
-                <IoIosLeaf className="text-green-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-4 relative">
+                <IoIosLeaf className="text-green-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
 
-                <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                <h2 className="text-2xl lg:text-3xl leading-snug tracking-normal">
                     Environmental Benefits
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
                     <img
-                        src="../src/assets/solarpanel.jpg"
+                        src={solarPanel}
                         alt="Solar Panel"
                         className="w-4/6 lg:w-1/3 mr-2 p-2 rounded-2xl"
                     />
-                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-1 lg:p-2">
-                        Solar is the most abundant energy source on earth, and
+                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 p-1 lg:p-2">
+                        Solar energy is the most abundant energy on earth, and
                         is also increasingly easy to use. With residential solar
                         power systems to harness this energy, switching to this
                         green energy can positively impact the environment
@@ -241,12 +244,12 @@ const Cube = ({
                     </p>
                 </div>
             </div>
-            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
-                <AiOutlineDollar className="text-yellow-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                <AiOutlineDollar className="text-yellow-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Costs
                 </h2>
-                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-2">
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2">
                     Many factors that can affect the cost of solar panels,
                     including the type, size, and location of the system.
                     According to Forbes and many experts, solar panels cost
@@ -256,12 +259,12 @@ const Cube = ({
                     been dropping consistently since 2009.
                 </p>
             </div>
-            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
-                <TbMoneybag className="text-yellow-700 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                <TbMoneybag className="text-yellow-700 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
-                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 ">
                     According to the IRS, investing in renewable energy for a
                     home can qualify someone for a tax credit of 30%, meaning
                     they will have to pay 30% less of their taxes.
@@ -271,9 +274,9 @@ const Cube = ({
     );
 
     const heatingText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-8">
+        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
-                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-2xl lg:text-5xl p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-xl lg:text-5xl lg:p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
@@ -289,14 +292,14 @@ const Cube = ({
             <h1 className="text-3xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                 Heating
             </h1>
-            <div className="rounded-lg bg-gray-800 p-3 mt-4 relative">
-                <IoIosLeaf className="text-green-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-4 relative">
+                <IoIosLeaf className="text-green-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
 
-                <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                <h2 className="text-2xl lg:text-3xl leading-snug tracking-normal">
                     Environmental Benefits
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
-                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-1 lg:p-2">
+                    <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 p-1 lg:p-2">
                         Residential buildings account for 5 billion tons of
                         greenhouse gases each year, with a significant portion
                         caused by heating. One of the easiest and most effective
@@ -306,30 +309,30 @@ const Cube = ({
                         energy-efficient than furnaces and boilers.
                     </p>
                     <img
-                        src="../src/assets/heatpump.jpg"
+                        src={heatPump}
                         alt="Electric car"
                         className="w-4/6 lg:w-1/3 ml-2 p-2 rounded-2xl"
                     />
                 </div>
             </div>
-            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
-                <AiOutlineDollar className="text-yellow-500 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                <AiOutlineDollar className="text-yellow-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Costs
                 </h2>
-                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-2">
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2">
                     Heat pumps cost around $5,000 to $10,000, a similar amount
                     compared to furnaces and boilers. It is always recommended
                     to buy Energy Star labeled products as they are the most
                     energy efficient.
                 </p>
             </div>
-            <div className="rounded-lg bg-gray-800 p-3 mt-3 relative">
-                <TbMoneybag className="text-yellow-700 absolute top-3 left-3 text-xl lg:text-3xl" />
+            <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                <TbMoneybag className="text-yellow-700 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
-                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 ">
                     Homeowners who make energy-efficient improvements to their
                     home including the installation of electric heat pumps can
                     qualify for a tax rebate of $3,200
@@ -384,7 +387,7 @@ const Message = ({ showButtons }) => {
     const { camera } = useThree();
 
     useEffect(() => {
-        const dontShowAgainValue = localStorage.getItem("dontShowAgain");
+        const dontShowAgainValue = localStorage.getItem("garageDontShowAgain");
         if (dontShowAgainValue) {
             setShowText(false);
             setDontShowAgain(true);
@@ -395,9 +398,9 @@ const Message = ({ showButtons }) => {
         const { checked } = event.target;
         setDontShowAgain(checked);
         if (checked) {
-            localStorage.setItem("dontShowAgain", "true");
+            localStorage.setItem("garageDontShowAgain", "true");
         } else {
-            localStorage.removeItem("dontShowAgain");
+            localStorage.removeItem("garageDontShowAgain");
         }
     };
 
@@ -412,56 +415,61 @@ const Message = ({ showButtons }) => {
                         }}
                     >
                         <div>
-                            <h1 className=" text-3xl lg:text-6xl font-bold">
-                                Welcome to the garage!
+                            <h1 className="text-6xl lg:text-7xl p-2 font-bold bg-gradient-to-br from-green-500 to-sky-500 text-transparent bg-clip-text max-w-sm lg:max-w-6xl">
+                                Garage
                             </h1>
-                            <p className="text-base lg:text-2xl mt-10 max-w-6xl">
-                                Click on objects to learn about eco-friendly
-                                energy solutions for homes. Clickable objects
-                                will be highlighted when hovered over.
-                            </p>
+                            <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs mt-6 lg:max-w-6xl border-2 border-green-500">
+                                <p className="text-base lg:text-2xl max-w-6xl">
+                                    Click on objects to learn about eco-friendly
+                                    energy solutions for homes. Clickable
+                                    objects will be highlighted when hovered
+                                    over.
+                                </p>
+                            </div>
                         </div>
-                        <div className="mt-10 flex flex-col items-center">
-                            <label className=" text-base lg:text-2xl">
-                                <input
-                                    type="checkbox"
-                                    checked={dontShowAgain}
-                                    onChange={handleCheckboxChange}
-                                    className="mr-2 h-4 w-4"
-                                    id="asdfghjkl"
-                                />
-                                Don't show this message again
-                            </label>
-                            <button
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
-                                onClick={() => setShowText(false)}
-                            >
-                                OK
-                            </button>
+                        <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl mt-6 border-2 border-green-500">
+                            <div className="flex flex-col items-center">
+                                <label className=" text-base lg:text-2xl">
+                                    <input
+                                        type="checkbox"
+                                        checked={dontShowAgain}
+                                        onChange={handleCheckboxChange}
+                                        className="mr-2 h-4 w-4"
+                                        id="asdfghjkl"
+                                    />
+                                    Don't show this message again
+                                </label>
+                            </div>
                         </div>
+                        <button
+                            className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+                            onClick={() => setShowText(false)}
+                        >
+                            OK
+                        </button>
                     </div>
                 )}
                 {!showText && showButtons && (
                     <div className="flex flex-row p-1 ">
                         <button
-                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() => (window.top.location.href = "/")}
                         >
                             <IoIosHome className="text-5xl" />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() => (window.top.location.href = "/")}
                         >
-                            <FaCalculator className="text-4xl" />
+                            <FaCalculator className="text-3xl lg:text-4xl" />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() =>
                                 (window.top.location.href = "/trash")
                             }
                         >
-                            <FaTrashAlt className="text-4xl" />
+                            <FaTrashAlt className="text-3xl lg:text-4xl" />
                         </button>
                     </div>
                 )}
@@ -501,8 +509,8 @@ const Garage = () => {
                         <Cube
                             position={[2.6, 1.4, -3.3]}
                             size={[0.6, 0.8, 1]}
-                            goTo={new THREE.Vector3(1.8, 1.15, -3.5)}
-                            lookAt={new THREE.Vector3(10, 1.15, -3.5)}
+                            goTo={new THREE.Vector3(1.8, 1.15, -3.4)}
+                            lookAt={new THREE.Vector3(10, 1.15, -3.4)}
                             textPosition={[5040 / width, 3208 / width, -4.9]}
                             num={3}
                             setShowButtons={setShowButtons}

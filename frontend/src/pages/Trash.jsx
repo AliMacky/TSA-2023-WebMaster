@@ -11,6 +11,8 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FaTrashAlt, FaCalculator } from "react-icons/fa";
 import { PiGarageBold } from "react-icons/pi";
 import { IoIosHome } from "react-icons/io";
+import { RiRecycleFill } from "react-icons/ri";
+import { MdCompost } from "react-icons/md";
 
 const origin = new THREE.Vector3(0, 11, 0);
 const cameraStartPosition = new THREE.Vector3(-17, 11, 0);
@@ -163,10 +165,14 @@ const Form = () => {
         }
     };
 
+    let x = 0;
+    if (screenSize.height < 800) x = 2;
+    if (screenSize.height > 1000) x = -6;
+
     return (
         <>
             <Html
-                position={[10, 30, (-1 * screenSize.width) / 55]}
+                position={[10, 30, (-1 * screenSize.width) / 52 - x]}
                 // style={{ transform: `scale(${scale})` }}
             >
                 <div className="w-[40vw] lg:w-[35vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
@@ -231,30 +237,105 @@ const Form = () => {
     );
 };
 
-const Buttons = () => {
+const Message = () => {
+    const [showText, setShowText] = useState(true);
+    const [dontShowAgain, setDontShowAgain] = useState(false);
+
+    useEffect(() => {
+        const dontShowAgainValue = localStorage.getItem("trashDontShowAgain");
+        if (dontShowAgainValue) {
+            setShowText(false);
+            setDontShowAgain(true);
+        }
+    }, []);
+
+    const handleCheckboxChange = (event) => {
+        const { checked } = event.target;
+        setDontShowAgain(checked);
+        if (checked) {
+            localStorage.setItem("trashDontShowAgain", "true");
+        } else {
+            localStorage.removeItem("trashDontShowAgain");
+        }
+    };
+
     return (
-        <Html fullscreen style={{ transform: "translate3d(1%,20%,0)" }}>
-            <div className="flex flex-col p-1 ">
-                <button
-                    className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                    onClick={() => (window.top.location.href = "/")}
+        <>
+            {showText && (
+                <Html
+                    fullscreen
+                    style={{ transform: "translate3d(0%,-42.2%,0)" }}
                 >
-                    <IoIosHome className="text-5xl" />
-                </button>
-                <button
-                    className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                    onClick={() => (window.top.location.href = "/garage")}
-                >
-                    <PiGarageBold className="text-5xl" />
-                </button>
-                <button
-                    className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                    onClick={() => (window.top.location.href = "/")}
-                >
-                    <FaCalculator className="text-3xl lg:text-4xl" />
-                </button>
-            </div>
-        </Html>
+                    <div
+                        className="flex flex-col justify-center items-center w-[100vw] h-[100vh] mx-auto text-white text-center bg-gray-900 shadow-md bg-opacity-85"
+                        onClick={(event) => {
+                            event.stopPropagation();
+                        }}
+                    >
+                        <div>
+                            <h1 className="text-6xl lg:text-7xl p-2 font-bold bg-gradient-to-br from-green-500 to-sky-500 text-transparent bg-clip-text max-w-sm lg:max-w-6xl">
+                                Trash
+                            </h1>
+                            <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs mt-6 lg:max-w-6xl border-2 border-green-500">
+                                <p className="text-base lg:text-2xl max-w-6xl">
+                                    Correctly disposing of waste is a great
+                                    practice that benefits the environment and
+                                    promotes sustainability. Our waste
+                                    classifier, powered by machine learning, can
+                                    classify images of waste fairly correctly.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl mt-6 border-2 border-green-500">
+                            <div className="flex flex-col items-center">
+                                <label className=" text-base lg:text-2xl">
+                                    <input
+                                        type="checkbox"
+                                        checked={dontShowAgain}
+                                        onChange={handleCheckboxChange}
+                                        className="mr-2 h-4 w-4"
+                                        id="asdfghjkl"
+                                    />
+                                    Don't show this message again
+                                </label>
+                            </div>
+                        </div>
+                        <button
+                            className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+                            onClick={() => setShowText(false)}
+                        >
+                            OK
+                        </button>
+                    </div>
+                </Html>
+            )}
+            {!showText && (
+                <Html fullscreen style={{ transform: "translate3d(1%,20%,0)" }}>
+                    <div className="flex flex-col p-1 ">
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() => (window.top.location.href = "/")}
+                        >
+                            <IoIosHome className="text-5xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() =>
+                                (window.top.location.href = "/garage")
+                            }
+                        >
+                            <PiGarageBold className="text-5xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() => (window.top.location.href = "/")}
+                        >
+                            <FaCalculator className="text-3xl lg:text-4xl" />
+                        </button>
+                    </div>
+                </Html>
+            )}
+        </>
     );
 };
 
@@ -265,21 +346,38 @@ const Info = () => {
             position={[10, 30, screenSize.width / 370]}
             // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
-            <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
-                <h1 className="text-2xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-2 lg:mb-6">
+            <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible lg:p-8">
+                <h1 className="text-2xl lg:text-6xl font-bold text-shadow-md tracking-wide">
                     More Info
                 </h1>
-                <p className="text-xs lg:text-base">
-                    {screenSize.width} {screenSize.height} Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit. Ut sit amet mi in elit
-                    efficitur gravida consequat vitae elit. Aliquam blandit nibh
-                    risus, id consequat mi finibus vitae. Proin euismod purus a
-                    cursus volutpat. Morbi convallis arcu ut lectus fermentum
-                    semper. Maecenas non massa commodo, rhoncus metus vel,
-                    rutrum tellus. Aliquam erat volutpat. Aliquam erat volutpat.
-                    In et lectus vel eros iaculis cursus. Suspendisse lobortis
-                    ultrices elit lobortis{" "}
-                </p>
+                <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-4 relative">
+                    <RiRecycleFill className="text-blue-500 absolute lg:top-3 lg:left-3 text-sm lg:text-3xl" />
+
+                    <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                        Recycling
+                    </h2>
+                    <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
+                        recycling
+                    </p>
+                </div>
+                <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-3 relative">
+                    <FaTrashAlt className="text-grey-700 absolute lg:top-3 lg:left-3 text-xs lg:text-2xl" />
+                    <h2 className="text-xl lg:text-3xl leading-relaxed tracking-normal">
+                        Trash
+                    </h2>
+                    <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
+                        trash
+                    </p>
+                </div>
+                <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-3 relative">
+                    <MdCompost className="text-green-500 absolute lg:top-3 lg:left-3 text-sm lg:text-3xl" />
+                    <h2 className="text-xl lg:text-3xl leading-relaxed tracking-normal">
+                        Compost
+                    </h2>
+                    <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
+                        compost
+                    </p>
+                </div>
             </div>
         </Html>
     );
@@ -292,7 +390,7 @@ const Trash = () => {
                 <Suspense fallback={<Loading />}>
                     <Canvas>
                         {/* <CameraControls /> */}
-                        <Buttons />
+                        <Message />
                         <GarbageBinsModel />
                         <Form />
                         <Info />

@@ -61,7 +61,7 @@ const TextMesh = (textVals) => {
     );
 };
 
-const Cube = ({ position, size, goTo, lookAt }) => {
+const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
     const objectRef = useRef();
     const cameraCubeRef = useRef();
     const [clicked, setClicked] = useState(false);
@@ -90,11 +90,15 @@ const Cube = ({ position, size, goTo, lookAt }) => {
                     event.stopPropagation();
                     setClicked(!clicked);
                     if (!clicked) {
+                        setButtonPosition(999);
                         setTimeout(() => {
                             setShowButtons(true);
                         }, 1000);
                     } else {
                         setShowButtons(false);
+                        setTimeout(() => {
+                            setButtonPosition(0);
+                        }, 1000);
                     }
                 }}
             >
@@ -103,7 +107,7 @@ const Cube = ({ position, size, goTo, lookAt }) => {
                 {/* <TextMesh args={[textPosition, textRotation]}  /> */}
             </mesh>
 
-            {showButtons && window.innerWidth < 500 && (
+            {showButtons && window.innerWidth < 1100 && (
                 <Html position={[-0.41, 2.23, 0.5]}>
                     <div className="flex flex-row p-1 ">
                         <button
@@ -125,7 +129,7 @@ const Cube = ({ position, size, goTo, lookAt }) => {
                         <button
                             className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
                             onClick={() =>
-                                (window.top.location.href = "/garage")
+                                (window.top.location.href = "/trash")
                             }
                         >
                             <FaTrashAlt />
@@ -152,11 +156,17 @@ const Scene = () => {
     );
     const directionalLightRef = useRef();
     let gotoZ = 1;
-    if (window.innerWidth < 900) gotoZ = 2;
+    if (window.innerWidth < 1100) gotoZ = 2;
+    const [iFramePosition, setiFramePosition] = useState(999);
+    const [buttonPosition, setButtonPosition] = useState(0);
 
     return (
         // <Suspense fallback={<Loading />}>
         <>
+            <Message
+                setiFramePosition={setiFramePosition}
+                buttonPosition={buttonPosition}
+            />
             <Cube
                 position={[-0.035, 1.9, -0.5]}
                 size={[100, 100, 1]}
@@ -164,11 +174,12 @@ const Scene = () => {
                 lookAt={new THREE.Vector3(0, 1.8, 0)}
                 textRotation={[0, Math.PI / 4, 0]}
                 textPosition={[-0.5, 1, -0.5]}
+                setButtonPosition={setButtonPosition}
             />
 
             <primitive
                 object={IGNORE_ME.scene}
-                position={[-0.034, 1.83, 0.2]}
+                position={[iFramePosition, 1.83, 0.2]}
                 scale={0.05}
             >
                 <Html
@@ -192,6 +203,93 @@ const Scene = () => {
             {/* <ModelViewer scale="40" modelPath={"./models/table.glb"} /> */}
         </>
         // </Suspense>
+    );
+};
+
+const Message = ({ setiFramePosition, buttonPosition }) => {
+    const [showText, setShowText] = useState(true);
+    return (
+        <>
+            {showText && (
+                <Html
+                    fullscreen
+                    style={{ transform: "translate3d(0%,-17.8%,0)" }}
+                >
+                    <div
+                        className="flex flex-col justify-center items-center w-[100vw] h-[100vh] mx-auto text-white text-center bg-gray-900 shadow-md bg-opacity-85"
+                        onClick={(event) => {
+                            event.stopPropagation();
+                        }}
+                    >
+                        <div>
+                            <h1 className="text-6xl p-2 lg:text-7xl font-bold bg-gradient-to-br from-green-500 to-sky-500 text-transparent bg-clip-text">
+                                Welcome!
+                            </h1>
+                            <div className="mt-6">
+                                <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
+                                    <p className="text-base lg:text-xl">
+                                        Our website uses React, React Three
+                                        Fiber, and 3D models designed with
+                                        Blender to create an interactive,
+                                        engaging experience.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="mt-6">
+                                <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
+                                    <p className="text-base lg:text-xl">
+                                        Learn more about our website{" "}
+                                        <a
+                                            href="/about"
+                                            className="text-blue-500 underline"
+                                        >
+                                            here
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="mt-6">
+                                <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
+                                    <p className="text-base lg:text-xl">
+                                        Begin by clicking anywhere outside the
+                                        monitor to zoom in.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-6 flex flex-col items-center">
+                            <button
+                                className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onClick={() => {
+                                    setShowText(false);
+                                    setiFramePosition(-0.034);
+                                }}
+                            >
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                </Html>
+            )}
+            {!showText && (
+                <Html
+                    fullscreen
+                    position={[buttonPosition, 0, 0]}
+                    style={{ transform: "translate3d(0%,-17.8%,0)" }}
+                >
+                    <button
+                        className="flex text-3xl absolute bottom-0 left-0 p-4 h-15 w-50 bg-gray-800 m-5 text-white text-center shadow-2xl rounded-lg hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        onClick={(event) => {
+                            event.stopPropagation();
+                            setShowText(true);
+                            setiFramePosition(999);
+                        }}
+                    >
+                        Welcome Screen
+                    </button>
+                </Html>
+            )}
+        </>
     );
 };
 
