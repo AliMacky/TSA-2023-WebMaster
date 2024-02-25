@@ -172,7 +172,7 @@ const Form = () => {
     return (
         <>
             <Html
-                position={[10, 30, (-1 * screenSize.width) / 52 - x]}
+                position={[10, 30, (-1 * screenSize.width) / 56 - x]}
                 // style={{ transform: `scale(${scale})` }}
             >
                 <div className="w-[40vw] lg:w-[35vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
@@ -310,7 +310,10 @@ const Message = () => {
                 </Html>
             )}
             {!showText && (
-                <Html fullscreen style={{ transform: "translate3d(1%,20%,0)" }}>
+                <Html
+                    fullscreen
+                    style={{ transform: "translate3d(0.3%,22%,0)" }}
+                >
                     <div className="flex flex-col p-1 ">
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
