@@ -65,7 +65,7 @@ const GarbageBinsModel = () => {
     );
 };
 
-const Form = () => {
+const Form = ({ setShowButtons }) => {
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -74,8 +74,6 @@ const Form = () => {
     const [position, setPosition] = useState([999, 999, 999]);
     const [category, setCategory] = useState(null);
     const screenSize = useScreenSize();
-    const [scale, setScale] = useState(1);
-    const [scalePosition, setScalePosition] = useState([0, 22.7, -14.8]);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -92,24 +90,26 @@ const Form = () => {
     };
 
     const onImageSubmit = async (image) => {
-        const formData = new FormData();
-        formData.append("file", image);
-        setLoading(true);
+        moveCamera(1);
+        setShowButtons(false);
+        // const formData = new FormData();
+        // formData.append("file", image);
+        // setLoading(true);
 
-        try {
-            const response = await axios.post(
-                "http://localhost:5000/predict",
-                formData
-            );
-            const prediction = response.data.prediction;
-            setCategory(prediction);
-            console.log(prediction, response.data.probability);
-            setLoading(false);
-            moveCamera(response.data.category);
-        } catch (error) {
-            console.error("Error classifying image:", error);
-        }
-        console.log("Image submitted:", image);
+        // try {
+        //     const response = await axios.post(
+        //         "http://localhost:5000/predict",
+        //         formData
+        //     );
+        //     const prediction = response.data.prediction;
+        //     setCategory(prediction);
+        //     console.log(prediction, response.data.probability);
+        //     setLoading(false);
+        //     moveCamera(response.data.category);
+        // } catch (error) {
+        //     console.error("Error classifying image:", error);
+        // }
+        // console.log("Image submitted:", image);
     };
 
     const moveCamera = async (category) => {
@@ -166,13 +166,14 @@ const Form = () => {
     };
 
     let x = 0;
-    if (screenSize.height < 800) x = 2;
-    if (screenSize.height > 1000) x = -6;
+    if (screenSize.height < 800) x = 3;
+    else if (screenSize.height > 1000) x = -3;
+    else x = 0.5;
 
     return (
         <>
             <Html
-                position={[10, 30, (-1 * screenSize.width) / 56 - x]}
+                position={[10, 31, (-1 * screenSize.width) / 56 - x]}
                 // style={{ transform: `scale(${scale})` }}
             >
                 <div className="w-[40vw] lg:w-[35vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
@@ -227,7 +228,10 @@ const Form = () => {
                     </h1>
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
-                        onClick={() => moveCamera(3)}
+                        onClick={() => {
+                            moveCamera(3);
+                            setShowButtons(true);
+                        }}
                     >
                         OK
                     </button>
@@ -237,7 +241,7 @@ const Form = () => {
     );
 };
 
-const Message = () => {
+const Message = ({ showButtons }) => {
     const [showText, setShowText] = useState(true);
     const [dontShowAgain, setDontShowAgain] = useState(false);
 
@@ -309,11 +313,8 @@ const Message = () => {
                     </div>
                 </Html>
             )}
-            {!showText && (
-                <Html
-                    fullscreen
-                    style={{ transform: "translate3d(0.3%,22%,0)" }}
-                >
+            {!showText && showButtons && (
+                <Html fullscreen style={{ transform: "translate3d(0%,22%,0)" }}>
                     <div className="flex flex-col p-1 ">
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
@@ -346,7 +347,7 @@ const Info = () => {
     const screenSize = useScreenSize();
     return (
         <Html
-            position={[10, 30, screenSize.width / 370]}
+            position={[10, 31, screenSize.width / 370]}
             // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
             <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible lg:p-8">
@@ -387,15 +388,16 @@ const Info = () => {
 };
 
 const Trash = () => {
+    const [showButtons, setShowButtons] = useState(true);
     return (
         <div className="w-screen h-screen bg-gray-600">
             <div style={{ width: "100vw", height: "100vh" }}>
                 <Suspense fallback={<Loading />}>
                     <Canvas>
                         {/* <CameraControls /> */}
-                        <Message />
+                        <Message showButtons={showButtons} />
                         <GarbageBinsModel />
-                        <Form />
+                        <Form setShowButtons={setShowButtons} />
                         <Info />
                     </Canvas>
                 </Suspense>

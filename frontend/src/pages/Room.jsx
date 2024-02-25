@@ -278,7 +278,7 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                     style={{ transform: "translate3d(0%,-17.8%,0)" }}
                 >
                     <button
-                        className="flex text-3xl absolute bottom-0 left-0 p-4 h-15 w-50 bg-gray-800 m-5 text-white text-center shadow-2xl rounded-lg hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        className="flex justify-center items-center text-lg lg:text-3xl absolute bottom-0 left-0 p-4 h-10 w-30 lg:h-16 lg:w-50 bg-gray-800 m-3 lg:m-5 text-white text-center shadow-2xl rounded-lg hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                         onClick={(event) => {
                             event.stopPropagation();
                             setShowText(true);

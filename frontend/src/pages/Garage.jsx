@@ -70,6 +70,7 @@ const Cube = ({
     const target = lookAt;
     const [hovered, setHovered] = useState(false);
     const [clickable, setClickable] = useState(true);
+    const [centeredText, setCenteredText] = useState();
 
     useEffect(() => {
         document.body.style.cursor = hovered ? "pointer" : "auto";
@@ -126,14 +127,21 @@ const Cube = ({
         }
     };
 
+    const handleClickMobile = () => {
+        if (num === 1) setCenteredText(carText);
+        if (num === 2) setCenteredText(solarPowerText);
+        if (num === 3) setCenteredText(heatingText);
+    };
+
     const carText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+        <div className="w-[90vw] lg:w-[40vw] max-h-[85vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
-                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-xl lg:text-5xl lg:p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-lg lg:text-5xl lg:p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
                     setText();
+                    setCenteredText();
                     setView(0);
                     setTimeout(() => {
                         setShowButtons(true);
@@ -200,13 +208,14 @@ const Cube = ({
     );
 
     const solarPowerText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+        <div className="w-[90vw] lg:w-[40vw] max-h-[85vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
-                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-xl lg:text-5xl lg:p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-lg lg:text-5xl lg:p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
                     setText();
+                    setCenteredText();
                     setView(0);
                     setTimeout(() => {
                         setShowButtons(true);
@@ -274,13 +283,14 @@ const Cube = ({
     );
 
     const heatingText = (
-        <div className="w-[65vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
+        <div className="w-[90vw] lg:w-[40vw] max-h-[85vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
             <button
-                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-xl lg:text-5xl lg:p-2"
+                className="absolute lg:top-2 lg:left-2 top-0 left-0 text-white text-lg lg:text-5xl lg:p-2"
                 onClick={() => {
                     moveCamera(1);
                     setClicked(false);
                     setText();
+                    setCenteredText();
                     setView(0);
                     setTimeout(() => {
                         setShowButtons(true);
@@ -359,7 +369,8 @@ const Cube = ({
                 }}
                 onClick={(event) => {
                     event.stopPropagation();
-                    handleClick();
+                    if (width > 1100) handleClick();
+                    else handleClickMobile();
                 }}
                 position={position}
             >
@@ -372,6 +383,9 @@ const Cube = ({
             </mesh>
 
             <Html position={textPosition}>{text}</Html>
+            <Html style={{ transform: "translate3d(-50%,-45%,0)" }}>
+                {centeredText}
+            </Html>
             <PerspectiveCamera
                 ref={cameraCubeRef}
                 makeDefault={false}

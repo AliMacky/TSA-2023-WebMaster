@@ -11,6 +11,9 @@ module.exports = {
                 xxxs: ["0.4rem"],
             },
         },
+        screens: {
+            lg: "1025px",
+        },
     },
     plugins: [],
 };
