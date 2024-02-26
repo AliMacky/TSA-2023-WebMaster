@@ -284,7 +284,7 @@ const Message = ({ showButtons }) => {
                                 <p className="text-base lg:text-2xl max-w-6xl">
                                     Correctly disposing of waste is a great
                                     practice that benefits the environment and
-                                    promotes sustainability. Our waste
+                                    promotes sustainability. This waste
                                     classifier, powered by machine learning, can
                                     classify images of waste fairly accurately.
                                 </p>

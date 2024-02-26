@@ -226,9 +226,9 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                                 Welcome!
                             </h1>
                             <div className="mt-6">
-                                <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
+                                <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-7xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
-                                        Our website uses React, React Three
+                                        This website uses React, React Three
                                         Fiber, and 3D models designed with
                                         Blender to create an interactive,
                                         engaging experience.
@@ -238,7 +238,7 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                             <div className="mt-6">
                                 <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
-                                        Learn more about our website{" "}
+                                        Learn more about the website{" "}
                                         <a
                                             href="/about"
                                             className="text-blue-500 underline"
