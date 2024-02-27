@@ -317,13 +317,13 @@ const Message = ({ showButtons }) => {
                 <Html fullscreen style={{ transform: "translate3d(0%,22%,0)" }}>
                     <div className="flex flex-col p-1 ">
                         <button
-                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            className="flex items-center justify-center font-kanit p-2 xl:h-20 h-12 w-12 xl:w-20 bg-green-600 m-3 xl:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() => (window.top.location.href = "/")}
                         >
                             <IoIosHome className="text-5xl" />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            className="flex items-center justify-center font-kanit p-2 xl:h-20 h-12 w-12 xl:w-20 bg-green-600 m-3 xl:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() =>
                                 (window.top.location.href = "/garage")
                             }
@@ -331,10 +331,10 @@ const Message = ({ showButtons }) => {
                             <PiGarageBold className="text-5xl" />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            className="flex items-center justify-center font-kanit p-2 xl:h-20 h-12 w-12 xl:w-20 bg-green-600 m-3 xl:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() => (window.top.location.href = "/")}
                         >
-                            <FaCalculator className="text-3xl lg:text-4xl" />
+                            <FaCalculator className="text-3xl xl:text-4xl" />
                         </button>
                     </div>
                 </Html>
