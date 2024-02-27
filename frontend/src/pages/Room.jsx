@@ -238,7 +238,7 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                             <div className="mt-6">
                                 <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
-                                        Learn more about the website{" "}
+                                        Learn more about this website{" "}
                                         <a
                                             href="/about"
                                             className="text-blue-500 underline"
