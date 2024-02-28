@@ -45,24 +45,24 @@ const Slideshow = () => {
 	return (
 		<>
 			<form onSubmit={handleFormSubmit}>
-				<label className="text-white">
+				<label className="text-white text-2xl font-bold px-2">
 				    {formName}:
 					<input
-						className="text-black ml-4"
+						className="border-2 border-gray-500 px-2 py-2 w-64 m-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent focus:shadow-l"
 						type="text"
 						name={currentForm}
 						value={formData[currentForm]}
 						onChange={handleChange}
 					/>
 				</label>
-				<button className="text-white p-4" type="submit">
+				<button className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded" type="submit">
 					Submit
 				</button>
 			</form>
-			<button className="text-white p-4 pl-0" onClick={prevForm}>
+			<button className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 rounded" onClick={prevForm}>
 				Previous
 			</button>
-			<button className="text-white p-4" onClick={nextForm}>
+			<button className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded" onClick={nextForm}>
 				Next
 			</button>
 		</>
