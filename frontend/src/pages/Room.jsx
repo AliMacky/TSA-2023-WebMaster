@@ -69,7 +69,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
     const [showButtons, setShowButtons] = useState(false);
     const { camera } = useThree();
     const target = lookAt;
-    useFrame(() => { });
+    useFrame(() => {});
     if (clicked) {
         const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
         smoothAnimation(camera, goTo, couchRotation);
@@ -166,16 +166,12 @@ const Scene = () => {
     const directionalLightRef = useRef();
     let gotoZ = 1;
     if (window.innerWidth < 1100) gotoZ = 2;
-    const [iFramePosition, setiFramePosition] = useState(999);
     const [buttonPosition, setButtonPosition] = useState(0);
 
     return (
         // <Suspense fallback={<Loading />}>
         <>
-            <Message
-                setiFramePosition={setiFramePosition}
-                buttonPosition={buttonPosition}
-            />
+            <Message buttonPosition={buttonPosition} />
             <Cube
                 position={[-0.035, 1.9, -0.5]}
                 size={[100, 100, 1]}
@@ -185,22 +181,6 @@ const Scene = () => {
                 textPosition={[-0.5, 1, -0.5]}
                 setButtonPosition={setButtonPosition}
             />
-
-            <primitive
-                object={IGNORE_ME.scene}
-                position={[iFramePosition, 1.83, 0.2]}
-                scale={0.05}
-            >
-                <Html
-                    wrapperClass="laptop"
-                    position={[-0.13, 1.55, 2]}
-                    transform
-                >
-                    <div id="wrapper">
-                        <iframe src="/screen" style={iFrameStyle} />
-                    </div>
-                </Html>
-            </primitive>
 
             <directionalLight
                 position={[2, 5, 2]}
@@ -215,7 +195,7 @@ const Scene = () => {
     );
 };
 
-const Message = ({ setiFramePosition, buttonPosition }) => {
+const Message = ({ buttonPosition }) => {
     const [showText, setShowText] = useState(true);
     return (
         <>
@@ -223,6 +203,7 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                 <Html
                     fullscreen
                     style={{ transform: "translate3d(0%,-17.8%,0)" }}
+                    zIndexRange={[1111, 0]}
                 >
                     <div
                         className="flex flex-col justify-center items-center w-[100vw] h-[100vh] mx-auto text-white text-center bg-gray-900 shadow-md bg-opacity-85"
@@ -260,8 +241,7 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                             <div className="mt-6">
                                 <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
-                                        Begin by clicking anywhere outside the
-                                        monitor to zoom in.
+                                        Click anywhere to zoom in and begin!
                                     </p>
                                 </div>
                             </div>
@@ -271,7 +251,6 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                                 className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                                 onClick={() => {
                                     setShowText(false);
-                                    setiFramePosition(-0.034);
                                 }}
                             >
                                 OK
@@ -291,7 +270,6 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
                         onClick={(event) => {
                             event.stopPropagation();
                             setShowText(true);
-                            setiFramePosition(999);
                         }}
                     >
                         Welcome Screen
@@ -303,12 +281,31 @@ const Message = ({ setiFramePosition, buttonPosition }) => {
 };
 
 const Room = () => {
+    const IGNORE_ME = useGLTF(
+        "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
+    );
     return (
         <>
             <div style={{ width: "100vw", height: "100vh" }}>
                 <Suspense fallback={<Loading />}>
                     <Canvas>
                         <Scene />
+                        <primitive
+                            object={IGNORE_ME.scene}
+                            position={[-0.034, 1.83, 0.2]}
+                            scale={0.05}
+                        >
+                            <Html
+                                wrapperClass="laptop"
+                                position={[-0.13, 1.55, 2]}
+                                transform
+                                zIndexRange={[0, 0]}
+                            >
+                                <div id="wrapper">
+                                    <iframe src="/screen" style={iFrameStyle} />
+                                </div>
+                            </Html>
+                        </primitive>
                     </Canvas>
                 </Suspense>
             </div>
