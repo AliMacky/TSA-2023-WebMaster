@@ -175,7 +175,7 @@ const Form = ({ setShowButtons }) => {
         <>
             <Html
                 position={[10, 31, (-1 * screenSize.width) / 56 - x]}
-            // style={{ transform: `scale(${scale})` }}
+                // style={{ transform: `scale(${scale})` }}
             >
                 <div className="w-[40vw] lg:w-[35vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
                     <h1 className="text-2xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-2 lg:mb-6">
@@ -315,7 +315,7 @@ const Message = ({ showButtons }) => {
                 </Html>
             )}
             {!showText && showButtons && (
-                <Html fullscreen style={{ transform: "translate3d(0%,22%,0)" }}>
+                <Html fullscreen style={{ transform: "translate3d(0%,5%,0)" }}>
                     <div className="flex flex-col p-1 ">
                         <button
                             className="flex items-center justify-center font-kanit p-2 xl:h-20 h-12 w-12 xl:w-20 bg-green-600 m-3 xl:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
@@ -333,15 +333,19 @@ const Message = ({ showButtons }) => {
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 xl:h-20 h-12 w-12 xl:w-20 bg-green-600 m-3 xl:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            onClick={() => (window.top.location.href = "/")}
+                            onClick={() =>
+                                (window.top.location.href = "/calculator")
+                            }
                         >
                             <FaCalculator className="text-3xl xl:text-4xl" />
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 xl:h-20 h-12 w-12 xl:w-20 bg-green-600 m-3 xl:m-4 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            onClick={() => (window.top.location.href = "/kitchen")}
+                            onClick={() =>
+                                (window.top.location.href = "/kitchen")
+                            }
                         >
-                            <MdKitchen className="text-4xl" />
+                            <MdKitchen className="text-5xl" />
                         </button>
                     </div>
                 </Html>
@@ -355,7 +359,7 @@ const Info = () => {
     return (
         <Html
             position={[10, 31, screenSize.width / 370]}
-        // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
+            // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
             <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible lg:p-8">
                 <h1 className="text-2xl lg:text-6xl font-bold text-shadow-md tracking-wide">

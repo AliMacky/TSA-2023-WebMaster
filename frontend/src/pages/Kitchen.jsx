@@ -398,7 +398,17 @@ const Message = ({ showButtons }) => {
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            onClick={() => (window.top.location.href = "/")}
+                            onClick={() =>
+                                (window.top.location.href = "/garage")
+                            }
+                        >
+                            <PiGarageBold className="text-5xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() =>
+                                (window.top.location.href = "/calculator")
+                            }
                         >
                             <FaCalculator className="text-3xl lg:text-4xl" />
                         </button>
@@ -409,14 +419,6 @@ const Message = ({ showButtons }) => {
                             }
                         >
                             <FaTrashAlt className="text-3xl lg:text-4xl" />
-                        </button>
-                        <button
-                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            onClick={() =>
-                                (window.top.location.href = "/garage")
-                            }
-                        >
-                            <PiGarageBold className="text-5xl" />
                         </button>
                     </div>
                 )}
