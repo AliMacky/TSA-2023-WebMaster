@@ -7,6 +7,8 @@ import {
     FaSearch,
     FaFolderMinus,
 } from "react-icons/fa";
+
+import { MdKitchen } from "react-icons/md";
 import { PiGarageBold } from "react-icons/pi";
 
 const Screen = () => {
@@ -38,6 +40,12 @@ const Screen = () => {
                         onClick={() => (window.top.location.href = "/trash")}
                     >
                         <FaTrashAlt className="text-4xl" />
+                    </button>
+                    <button
+                        className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-8 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        onClick={() => (window.top.location.href = "/kitchen")}
+                    >
+                        <MdKitchen className="text-4xl" />
                     </button>
                 </div>
             )}

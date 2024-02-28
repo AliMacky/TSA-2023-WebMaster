@@ -16,7 +16,7 @@ import { TbMoneybag } from "react-icons/tb";
 import electricCar from "../assets/electriccar.jpg";
 import solarPanel from "../assets/solarpanel.jpg";
 import heatPump from "../assets/heatpump.jpg";
-
+import { MdKitchen } from "react-icons/md";
 let scale = 1;
 let width = window.innerWidth;
 if (window.innerWidth < 1100) scale = 2;
@@ -484,6 +484,12 @@ const Message = ({ showButtons }) => {
                             }
                         >
                             <FaTrashAlt className="text-3xl lg:text-4xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                            onClick={() => (window.top.location.href = "/kitchen")}
+                        >
+                            <MdKitchen className="text-4xl" />
                         </button>
                     </div>
                 )}

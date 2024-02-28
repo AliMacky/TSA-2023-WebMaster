@@ -6,6 +6,8 @@ import { Routes, Route } from "react-router-dom";
 import usePreventZoom from "./usePreventZoom.jsx";
 import Trash from "./pages/Trash.jsx";
 import About from "./pages/About.jsx";
+import Kitchen from "./pages/Kitchen.jsx";
+
 
 const App = () => {
     usePreventZoom();
@@ -16,6 +18,7 @@ const App = () => {
             <Route path="/garage" element={<Garage />} />
             <Route path="/trash" element={<Trash />} />
             <Route path="/about" element={<About />} />
+            <Route path="kitchen" element={<Kitchen />} />
         </Routes>
     );
 };
