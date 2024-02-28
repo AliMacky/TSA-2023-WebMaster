@@ -19,6 +19,7 @@ import {
     FaTrash,
 } from "react-icons/fa";
 import { PiGarageBold } from "react-icons/pi";
+import { MdKitchen } from "react-icons/md";
 
 // import ModelViewer from "../ModelViewer";
 
@@ -68,7 +69,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
     const [showButtons, setShowButtons] = useState(false);
     const { camera } = useThree();
     const target = lookAt;
-    useFrame(() => {});
+    useFrame(() => { });
     if (clicked) {
         const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
         smoothAnimation(camera, goTo, couchRotation);
@@ -133,6 +134,14 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                             }
                         >
                             <FaTrashAlt />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/Kitchen")
+                            }
+                        >
+                            <MdKitchen />
                         </button>
                     </div>
                 </Html>
