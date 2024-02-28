@@ -487,7 +487,9 @@ const Message = ({ showButtons }) => {
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            onClick={() => (window.top.location.href = "/kitchen")}
+                            onClick={() =>
+                                (window.top.location.href = "/kitchen")
+                            }
                         >
                             <MdKitchen className="text-4xl" />
                         </button>
@@ -513,7 +515,7 @@ const Garage = () => {
                             size={[3.2, 2, 5]}
                             goTo={new THREE.Vector3(0.2, 1, -6.5)}
                             lookAt={new THREE.Vector3(0.2, 1, -3)}
-                            textPosition={[width / 550, 2.7, -4.1]}
+                            textPosition={[3.05, 2.7, -4.1]}
                             num={1}
                             setShowButtons={setShowButtons}
                         />
@@ -522,7 +524,7 @@ const Garage = () => {
                             size={[1, 2, 1.5]}
                             goTo={new THREE.Vector3(1, 0.5, 0)}
                             lookAt={new THREE.Vector3(3.5, 0.5, 0)}
-                            textPosition={[4032 / width, 2520 / width, -1.6]}
+                            textPosition={[2.4, 1.5, -1.6]}
                             num={2}
                             setShowButtons={setShowButtons}
                         />
@@ -531,7 +533,7 @@ const Garage = () => {
                             size={[0.6, 0.8, 1]}
                             goTo={new THREE.Vector3(1.8, 1.15, -3.4)}
                             lookAt={new THREE.Vector3(10, 1.15, -3.4)}
-                            textPosition={[5040 / width, 3208 / width, -4.9]}
+                            textPosition={[3, 1.9, -4.9]}
                             num={3}
                             setShowButtons={setShowButtons}
                         />
