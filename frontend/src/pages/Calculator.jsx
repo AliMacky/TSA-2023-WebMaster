@@ -138,7 +138,8 @@ const Message = ({ showButtons }) => {
                             <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs mt-6 lg:max-w-6xl border-2 border-green-500">
                                 <p className="text-base lg:text-2xl max-w-6xl">
                                     This calculator will calculate your carbon
-                                    footprint.
+                                    footprint, click anywhere to zoom in and
+                                    begin.
                                 </p>
                             </div>
                         </div>
@@ -223,8 +224,8 @@ const Calculator = () => {
                     <Canvas>
                         {/* <CameraControls /> */}
                         <Cube
-                            position={[-0.035, 1.9, -0.5]}
-                            size={[100, 100, 1]}
+                            position={[-2, 0, 0]}
+                            size={[1, 100, 100]}
                             goTo={new THREE.Vector3(1.3, 1.42, 0)}
                             lookAt={new THREE.Vector3(1, 1.42, 0)}
                             textRotation={[0, Math.PI / 4, 0]}
