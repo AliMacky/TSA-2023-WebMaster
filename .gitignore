@@ -27,3 +27,4 @@ firebase.json
 env/
 venv/
 .vercel
+frontend/public/index.html

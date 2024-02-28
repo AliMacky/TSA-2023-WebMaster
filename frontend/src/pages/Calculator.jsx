@@ -246,7 +246,7 @@ const Calculator = () => {
                                 rotation={[0, Math.PI * 0.5, 0]}
                             >
                                 <div id="wrapper">
-                                    <iframe src="/screen" style={iFrameStyle} />
+                                    <iframe src="/calc" style={iFrameStyle} />
                                 </div>
                             </Html>
                         </primitive>
