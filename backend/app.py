@@ -27,7 +27,10 @@ def predict():
         )
         answer, probability_results, category = getPrediction(filename)
         return jsonify({"prediction": answer, "probability": probability_results, "category": category})
-
+    
+@app.route("/test", methods=["GET"])
+def test():
+    return "<p>Got it!</p>"
 
 def getPrediction(filename):
     model_path = "backend\model\optimized_model.tflite"
