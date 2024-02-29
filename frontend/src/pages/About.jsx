@@ -6,7 +6,7 @@ const About = () => {
     document.body.style = "background:#4B5563";
     return (
         <div className="w-screen h-screen flex items-center justify-center">
-            <div className="w-[80vw] absolute top-12 bg-gray-900 rounded-lg  p-6 text-white">
+            <div className="w-[80vw] absolute top-4 bg-gray-900 rounded-lg  p-6 text-white">
                 <button
                     onClick={() => {
                         window.top.location.href = "/";
@@ -100,6 +100,40 @@ const About = () => {
                             www.irs.gov/credits-deductions/residential-clean-energy-credit.
                             Accessed 18 Feb. 2024.
                         </p>
+                        <p>
+                            "Kitchen Appliances." Energy.gov, U.S. Department of
+                            Energy, www.energy.gov/
+                            energysaver/kitchen-appliances. Accessed 16 Feb.
+                            2024.
+                        </p>
+                        <p>
+                            "Buying Energy-Efficient Appliances." Green America,
+                            www.greenamerica.org/
+                            green-living/energy-efficient-appliances. Accessed
+                            16 Feb. 2024.
+                        </p>
+                        <p>
+                            "Composting at Home." United States Environmental
+                            Protection Agency, 18 Dec. 2023,
+                            www.epa.gov/recycle/composting-home#whycom. Accessed
+                            15 Feb. 2024.
+                        </p>
+                        <p>
+                            "Composting: Solution to Food Loss and Waste."
+                            United Nations Environment Programme, 25 Sept. 2023,
+                            www.unep.org/ietc/news/story/
+                            composting-solution-food-loss-and-waste. Accessed 15
+                            Feb. 2024.
+                        </p>
+                        <p>
+                            Cathey, Amber, and Pahriya Ashrap. "Trash to
+                            Treasure: The Incredible Benefits of Composting."
+                            University of Michigan School of Public Health, The
+                            Regents of the University of Michigan, 19 Sept.
+                            2019, sph.umich.edu/pursuit/
+                            2019posts/benefits-of-composting.html. Accessed 15
+                            Feb. 2024.
+                        </p>
                     </div>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
@@ -131,6 +165,17 @@ const About = () => {
                             roof. Unsplash.com, 26 Aug. 2019,
                             unsplash.com/photos/
                             brown-brick-house-with-solar-panels-on-roof-9CalgkSRZb8.
+                        </p>
+                        <p>
+                            Spiske, Markus. Selective focus photo of shovel on
+                            sand. Unsplash.com, 18 Aug. 2018,
+                            unsplash.com/photos/
+                            selective-focus-photo-of-shovel-on-sand-pASHRAKiDeU.
+                        </p>
+                        <p>
+                            Jamil, Latrach Med. Fridge in a corner.
+                            Unsplash.com, 15 Oct. 2019, unsplash.com/
+                            photos/blue-refrigerator-beside-green-leafed-plant-Eb6hMEhGlKY.
                         </p>
                     </div>
                 </div>
