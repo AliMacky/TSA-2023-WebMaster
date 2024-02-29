@@ -1,12 +1,15 @@
 import React from "react";
 import "../index.css";
 import { IoMdArrowBack } from "react-icons/io";
+import reactIcon from "../assets/reacticon.png";
+import threeIcon from "../assets/threejs.png";
+import blenderIcon from "../assets/blender.png";
 
 const About = () => {
     document.body.style = "background:#4B5563";
     return (
         <div className="w-screen h-screen flex items-center justify-center">
-            <div className="w-[80vw] absolute top-4 bg-gray-900 rounded-lg  p-6 text-white">
+            <div className="w-[80vw] absolute top-2 bg-gray-900 rounded-lg  p-6 text-white">
                 <button
                     onClick={() => {
                         window.top.location.href = "/";
@@ -17,6 +20,58 @@ const About = () => {
                     Return Home
                 </button>
                 <h1 className=" text-center text-6xl p-4 font-bold">About</h1>
+                <div className="mb-4">
+                    <h2 className="text-center text-3xl">
+                        Libraries and Tools Used:
+                    </h2>
+                    <div className="flex flex-row justify-center">
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://react.dev/";
+                                }}
+                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={reactIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">ReactJS</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://docs.pmnd.rs/react-three-fiber/getting-started/introduction";
+                                }}
+                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={threeIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">React-3F</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://www.blender.org/";
+                                }}
+                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={blenderIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">Blender</p>
+                        </div>
+                    </div>
+                </div>
                 <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                     <h2 className="text-center text-3xl p-2">Sources</h2>
                     <div className="pl-14 -indent-12 p-2 break-words">
@@ -176,6 +231,22 @@ const About = () => {
                             Jamil, Latrach Med. Fridge in a corner.
                             Unsplash.com, 15 Oct. 2019, unsplash.com/
                             photos/blue-refrigerator-beside-green-leafed-plant-Eb6hMEhGlKY.
+                        </p>
+                    </div>
+                </div>
+                <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
+                    <h2 className="text-center text-3xl p-2">Models</h2>
+                    <div className="p-2">
+                        <p>
+                            "Tesla Powerwall 2" by Steven Samuel used under CC
+                            BY 4.0
+                            https://sketchfab.com/3d-models/tesla-powerwall-2-685ca14d035347dd91c79b19c34a1a8e
+                        </p>
+
+                        <p>
+                            "Warmtepomp | Panasonic WC05H3E5" by Stichting
+                            Consortium Beroepsonderwijs used under CC BY 4.0
+                            https://sketchfab.com/3d-models/warmtepomp-panasonic-wc05h3e5-30e678e5ddf6469c81558deefc701370
                         </p>
                     </div>
                 </div>
