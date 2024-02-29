@@ -121,9 +121,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
-                            onClick={() =>
-                                (window.top.location.href = "/garage")
-                            }
+                            onClick={() => (window.top.location.href = "/calc")}
                         >
                             <FaCalculator />
                         </button>
@@ -241,8 +239,7 @@ const Message = ({ buttonPosition }) => {
                             <div className="mt-6">
                                 <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
-                                        Begin by clicking anywhere on the screen
-                                        to zoom in!
+                                        Begin by clicking anywhere to zoom in!
                                     </p>
                                 </div>
                             </div>

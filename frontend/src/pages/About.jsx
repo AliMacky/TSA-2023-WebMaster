@@ -248,6 +248,10 @@ const About = () => {
                             Consortium Beroepsonderwijs used under CC BY 4.0
                             https://sketchfab.com/3d-models/warmtepomp-panasonic-wc05h3e5-30e678e5ddf6469c81558deefc701370
                         </p>
+                        <p>
+                            "Low Poly Kitchen" by Bubble Tea
+                            https://www.turbosquid.com/3d-models/low-poly-kitchen-1922088
+                        </p>
                     </div>
                 </div>
             </div>

@@ -137,9 +137,10 @@ const Message = ({ showButtons }) => {
                             </h1>
                             <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs mt-6 lg:max-w-6xl border-2 border-green-500">
                                 <p className="text-base lg:text-2xl max-w-6xl">
-                                    This calculator will calculate your carbon
-                                    footprint, click anywhere to zoom in and
-                                    begin.
+                                    This calculator will calculate the money
+                                    saved and emissions reduced by switching to
+                                    an elecrtric car. Click anywhere to zoom in
+                                    and begin.
                                 </p>
                             </div>
                         </div>
