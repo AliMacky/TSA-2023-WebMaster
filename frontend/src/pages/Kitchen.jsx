@@ -17,6 +17,8 @@ import electricCar from "../assets/electriccar.jpg";
 import solarPanel from "../assets/solarpanel.jpg";
 import heatPump from "../assets/heatpump.jpg";
 import { MdKitchen } from "react-icons/md";
+import compost from "../assets/compost.jpg";
+import fridge from "../assets/fridge.jpg";
 
 let scale = 1;
 let width = window.innerWidth;
@@ -155,19 +157,19 @@ const Cube = ({
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
                     <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 p-1 lg:p-2">
-                        The use of electric cars is a great practice that can
-                        contribute to cleaner air and mitigating climate change.
-                        Electric cars emit significantly less greenhouse gases
-                        and pollution compared to gas vehicles, producing on
-                        average 150 less grams of CO2 per mile. They especially
-                        emit less in states that heavily utilize hydropower such
-                        as Washington. Moreover, the growing popularity of
-                        electric cars stimulates advancements in renewable
-                        energy technology and job creation within the clean
-                        energy sector.
+                        Some of the most energy-consuming parts of a home are
+                        the appliances. These include refrigerators,
+                        dishwashers, laundry machines, and other kitchen
+                        appliances. An easy solution to reduce energy usage and
+                        increase efficiency is to purchase newer appliances.
+                        Energy-efficient appliances consume less electricity or
+                        gas during operation, reducing overall energy
+                        consumption and lowering greenhouse gas emissions
+                        associated with electricity generation or fossil fuel
+                        use.
                     </p>
                     <img
-                        src={electricCar}
+                        src={fridge}
                         alt="Electric car"
                         className="w-4/6 lg:w-1/3 ml-2 p-2 rounded-2xl"
                     />
@@ -179,12 +181,13 @@ const Cube = ({
                     Costs
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2">
-                    Costs associated with electric cars can vary anywhere from
-                    $20,000 to hundreds of thousands of dollars due to a variety
-                    of factors, such as the initial purchase price, charging
-                    infrastructure, and operational expenses. When compared them
-                    to their gas counterparts, electric cars are generally more
-                    expensive, however the gap has been closing recently.
+                    The cost of new appliances varies based on type, model, and
+                    many more factors. Prices can range from a microwave costing
+                    a few hundred dollars to a refrigerator costing a few
+                    thousand dollars. It is recommended to find appliances with
+                    an Energy Star label. Energy Star is a program developed by
+                    the United States Environmental Protection Agency to find
+                    the most environmentally friendly products.
                 </p>
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
@@ -193,9 +196,9 @@ const Cube = ({
                     Tax Rebates
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
-                    According to the IRS, if you purchase an electric car
-                    starting from 2023 to 2032 you can qualify for a tax rebate
-                    of up to $7,500.
+                    Switching to energy-efficient appliances is considered a
+                    energy-efficient improvement to your home, qualifying you
+                    for a tax credit of up to $3,200.
                 </p>
             </div>
         </div>
@@ -229,21 +232,21 @@ const Cube = ({
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
                     <img
-                        src={solarPanel}
+                        src={compost}
                         alt="Solar Panel"
                         className="w-4/6 lg:w-1/3 mr-2 p-2 rounded-2xl"
                     />
                     <p className=" text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 p-1 lg:p-2">
-                        Solar energy is the most abundant energy on earth, and
-                        is also increasingly easy to use. With residential solar
-                        power systems to harness this energy, switching to this
-                        green energy can positively impact the environment
-                        greatly. Solar power does not pollute or generate the
-                        same byproducts such as carbon dioxide and methane,
-                        gases harmful to our health and the environment.
-                        Switching to solar energy contributes to the global
-                        effort to end reliance on fossil fuels and shift toward
-                        sustainable energy.
+                        Food waste management contributes to around 10% of
+                        global emissions. A great solution to this is
+                        composting. Composting is nature's way of recycling; it
+                        is a natural process where organic material is broken
+                        down to form compost. This allows wasted food to turn
+                        into soil, which can then be used for gardens and farms.
+                        Compost heavily reduces negative impacts from food
+                        waste, such as pollution, odors, infestations and more.
+                        It is an extremely environmentally friendly way to
+                        combat food waste.
                     </p>
                 </div>
             </div>
@@ -253,24 +256,22 @@ const Cube = ({
                     Costs
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2">
-                    Many factors that can affect the cost of solar panels,
-                    including the type, size, and location of the system.
-                    According to Forbes and many experts, solar panels cost
-                    around $16,000 to install, but can vary from $4,000 to
-                    $36,000 depending on the model and size. According to the
-                    United States Department of Energy, the cost of solar has
-                    been dropping consistently since 2009.
+                    The best part about composting is that it is completely
+                    free. There are items you can buy to make composting easier
+                    and more efficient, but they are not only unnecessary but
+                    also incredibly cheap. Composting can be done by anyone, no
+                    matter what their situation is.
                 </p>
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
-                <TbMoneybag className="text-yellow-700 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
+                <TbMoneybag className="text-yellow-700 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
                 <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
-                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 ">
-                    According to the IRS, investing in renewable energy for a
-                    home can qualify someone for a tax credit of 30%, meaning
-                    they will have to pay 30% less of their taxes.
+                <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
+                    There are major tax incentives for composting, however
+                    composting can save you money on many things like fertilizer
+                    and pesticides!
                 </p>
             </div>
         </div>

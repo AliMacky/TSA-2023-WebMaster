@@ -362,35 +362,45 @@ const Info = () => {
             // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
             <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible lg:p-8">
-                <h1 className="text-2xl lg:text-6xl font-bold text-shadow-md tracking-wide">
+                <h1 className="text-2xl lg:text-5xl font-bold text-shadow-md tracking-wide">
                     More Info
                 </h1>
-                <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-4 relative">
+                <p className="text-xs lg:text-2xl leading-snug lg:leading-relaxed tracking-normal font-bold lg:mt-2">
+                    Items that commonly go in each bin:
+                </p>
+                <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-2 relative">
                     <RiRecycleFill className="text-blue-500 absolute lg:top-3 lg:left-3 text-sm lg:text-3xl" />
 
-                    <h2 className="text-xl lg:text-3xl leading-snug tracking-normal">
+                    <h2 className="text-lg lg:text-3xl leading-snug tracking-normal">
                         Recycling
                     </h2>
-                    <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
-                        recycling
+                    <p className="text-xxs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
+                        Paper products, cardboard, plastic bottles and
+                        containers, glass bottles and jars, aluminum cans, steel
+                        cans, clean and dry plastic bags
                     </p>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-3 relative">
                     <FaTrashAlt className="text-grey-700 absolute lg:top-3 lg:left-3 text-xs lg:text-2xl" />
-                    <h2 className="text-xl lg:text-3xl leading-relaxed tracking-normal">
+                    <h2 className="text-lg lg:text-3xl leading-relaxed tracking-normal">
                         Trash
                     </h2>
-                    <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
-                        trash
+                    <p className="text-xxs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
+                        Non-recyclable plastics, broken glass, soiled or
+                        contaminated paper products, disposable diapers and
+                        sanitary products, non-recyclable metal items, hazardous
+                        waste, rubber, cermaics
                     </p>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-3 relative">
                     <MdCompost className="text-green-500 absolute lg:top-3 lg:left-3 text-sm lg:text-3xl" />
-                    <h2 className="text-xl lg:text-3xl leading-relaxed tracking-normal">
+                    <h2 className="text-lg lg:text-3xl leading-relaxed tracking-normal">
                         Compost
                     </h2>
-                    <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
-                        compost
+                    <p className="text-xxs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
+                        Fruit and vegatable scraps, coffee grounds and filters,
+                        tea bags, eggshells, nutshells, yard waste,
+                        uncontaminated paper towels and napkins
                     </p>
                 </div>
             </div>

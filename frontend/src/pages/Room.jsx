@@ -241,7 +241,7 @@ const Message = ({ buttonPosition }) => {
                             <div className="mt-6">
                                 <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-6xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
-                                        Click anywhere to zoom in and begin!
+                                        Begin by clicking anywhere to zoom in!
                                     </p>
                                 </div>
                             </div>
