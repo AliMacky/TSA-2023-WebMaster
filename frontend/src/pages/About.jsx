@@ -4,6 +4,9 @@ import { IoMdArrowBack } from "react-icons/io";
 import reactIcon from "../assets/reacticon.png";
 import threeIcon from "../assets/threejs.png";
 import blenderIcon from "../assets/blender.png";
+import flaskIcon from "../assets/flask.png";
+import tfIcon from "../assets/tensorflow.png";
+import dockerIcon from "../assets/docker.jpg";
 
 const About = () => {
     document.body.style = "background:#4B5563";
@@ -19,57 +22,21 @@ const About = () => {
                     <IoMdArrowBack className="mr-2" />
                     Return Home
                 </button>
-                <h1 className=" text-center text-6xl p-4 font-bold">About</h1>
-                <div className="mb-4">
-                    <h2 className="text-center text-3xl">
-                        Libraries and Tools Used:
-                    </h2>
-                    <div className="flex flex-row justify-center">
-                        <div>
-                            <button
-                                onClick={() => {
-                                    window.top.location.href =
-                                        "https://react.dev/";
-                                }}
-                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
-                            >
-                                <img
-                                    src={reactIcon}
-                                    className="w-20, h-20 rounded-lg"
-                                />
-                            </button>
-                            <p className="text-center">ReactJS</p>
-                        </div>
-                        <div>
-                            <button
-                                onClick={() => {
-                                    window.top.location.href =
-                                        "https://docs.pmnd.rs/react-three-fiber/getting-started/introduction";
-                                }}
-                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
-                            >
-                                <img
-                                    src={threeIcon}
-                                    className="w-20, h-20 rounded-lg"
-                                />
-                            </button>
-                            <p className="text-center">React-3F</p>
-                        </div>
-                        <div>
-                            <button
-                                onClick={() => {
-                                    window.top.location.href =
-                                        "https://www.blender.org/";
-                                }}
-                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
-                            >
-                                <img
-                                    src={blenderIcon}
-                                    className="w-20, h-20 rounded-lg"
-                                />
-                            </button>
-                            <p className="text-center">Blender</p>
-                        </div>
+                <h1 className=" text-center text-7xl p-4 font-bold">About</h1>
+                <div className="text-center text-blue-500 mb-4 text-2xl">
+                    <a
+                        href="student-copyright-checklist-signed.pdf"
+                        className="hover:underline"
+                    >
+                        Copyright Checklist
+                    </a>
+                    <div>
+                        <a
+                            href="student-copyright-checklist-signed.pdf"
+                            className="hover:underline"
+                        >
+                            Plan of Work Log
+                        </a>
                     </div>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
@@ -252,6 +219,103 @@ const About = () => {
                             "Low Poly Kitchen" by Bubble Tea
                             https://www.turbosquid.com/3d-models/low-poly-kitchen-1922088
                         </p>
+                    </div>
+                </div>
+                <div className="mt-3 bg-gray-800 rounded-lg p-4">
+                    <h2 className="text-center text-3xl">
+                        Libraries and Tools Used:
+                    </h2>
+                    <div className="flex flex-row justify-center">
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://react.dev/";
+                                }}
+                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={reactIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">ReactJS</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://docs.pmnd.rs/react-three-fiber/getting-started/introduction";
+                                }}
+                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={threeIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">React-3F</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://www.blender.org/";
+                                }}
+                                className="text-lg lg:text-xl m-4 rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={blenderIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">Blender</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://flask.palletsprojects.com/en/3.0.x/";
+                                }}
+                                className="text-lg lg:text-xl m-4 bg-white rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={flaskIcon}
+                                    className="w-20, h-20 rounded-lg p-2"
+                                />
+                            </button>
+                            <p className="text-center">Flask</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://www.tensorflow.org/";
+                                }}
+                                className="text-lg lg:text-xl m-4 bg-white rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={tfIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">Tensorflow</p>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    window.top.location.href =
+                                        "https://www.docker.com/";
+                                }}
+                                className="text-lg lg:text-xl m-4 bg-white rounded-lg hover:scale-110 hover:shadow-2xl hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 flex items-center"
+                            >
+                                <img
+                                    src={dockerIcon}
+                                    className="w-20, h-20 rounded-lg"
+                                />
+                            </button>
+                            <p className="text-center">Docker</p>
+                        </div>
                     </div>
                 </div>
             </div>

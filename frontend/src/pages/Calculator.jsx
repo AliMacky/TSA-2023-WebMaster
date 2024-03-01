@@ -139,7 +139,7 @@ const Message = ({ showButtons }) => {
                                 <p className="text-base lg:text-2xl max-w-6xl">
                                     This calculator will calculate the money
                                     saved and emissions reduced by switching to
-                                    an elecrtric car. Click anywhere to zoom in
+                                    an electric car. Click anywhere to zoom in
                                     and begin.
                                 </p>
                             </div>

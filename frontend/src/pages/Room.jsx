@@ -255,8 +255,8 @@ const Message = ({ buttonPosition }) => {
                                 <div className="rounded-lg bg-gray-800 p-4 relative inline-block max-w-xs lg:max-w-7xl border-2 border-green-500">
                                     <p className="text-base lg:text-xl">
                                         This website uses React, React Three
-                                        Fiber, and 3D models designed with
-                                        Blender to create an interactive,
+                                        Fiber, 3D models designed with Blender,
+                                        and more to create an interactive,
                                         engaging experience.
                                     </p>
                                 </div>
