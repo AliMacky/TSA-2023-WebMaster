@@ -54,7 +54,7 @@ const Cube = ({ position, size, goTo, lookAt, setShowButtons }) => {
     const [clicked, setClicked] = useState(false);
     const { camera } = useThree();
     const target = lookAt;
-    useFrame(() => {});
+    useFrame(() => { });
     if (clicked) {
         const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
         smoothAnimation(camera, goTo, couchRotation);
@@ -139,7 +139,7 @@ const Message = ({ showButtons }) => {
                                 <p className="text-base lg:text-2xl max-w-6xl">
                                     This calculator will calculate the money
                                     saved and emissions reduced by switching to
-                                    an electric car. Click anywhere to zoom in
+                                    an electric car from a gas car. Click anywhere to zoom in
                                     and begin.
                                 </p>
                             </div>
@@ -159,7 +159,7 @@ const Message = ({ showButtons }) => {
                             </div>
                         </div>
                         <button
-                            className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+                            className="text-2xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-5"
                             onClick={() => setShowText(false)}
                         >
                             OK

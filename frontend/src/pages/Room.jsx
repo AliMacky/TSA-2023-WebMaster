@@ -64,7 +64,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
     const { camera } = useThree();
     const target = lookAt;
     const [isSafari, setIsSafari] = useState(false);
-    useFrame(() => {});
+    useFrame(() => { });
     if (clicked) {
         const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
         smoothAnimation(camera, goTo, couchRotation);
@@ -80,7 +80,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
         const userAgent = navigator.userAgent.toLowerCase();
         setIsSafari(
             userAgent.indexOf("safari") !== -1 &&
-                userAgent.indexOf("chrome") === -1
+            userAgent.indexOf("chrome") === -1
         );
     }, []);
 
@@ -146,7 +146,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                     </div>
                 </Html>
             )}
-            {showButtons && isSafari && (
+            {showButtons && isSafari && window.innerWidth > 1100 && (
                 <Html position={[-0.32, 2.18, 0.5]}>
                     <div className="flex flex-row p-1 ">
                         <button
@@ -284,7 +284,7 @@ const Message = ({ buttonPosition }) => {
                         </div>
                         <div className="mt-6 flex flex-col items-center">
                             <button
-                                className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                className="text-2xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
                                 onClick={() => {
                                     setShowText(false);
                                 }}
@@ -317,6 +317,9 @@ const Message = ({ buttonPosition }) => {
 };
 
 const Room = () => {
+    useEffect(() => {
+        document.title = "Home";
+    }, [])
     const IGNORE_ME = useGLTF(
         "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
     );
@@ -328,7 +331,7 @@ const Room = () => {
                         <Scene />
                         <primitive
                             object={IGNORE_ME.scene}
-                            position={[-0.034, 1.83, 0.2]}
+                            position={[-0.037, 1.83, 0.2]}
                             scale={0.05}
                         >
                             <Html

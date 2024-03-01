@@ -204,11 +204,14 @@ const About = () => {
                             Unsplash.com, 15 Oct. 2019, unsplash.com/
                             photos/blue-refrigerator-beside-green-leafed-plant-Eb6hMEhGlKY.
                         </p>
+                        <p>
+                            Apart Labs. World Eclipse Spinning Animation. Dribbble, https://dribbble.com/shots/4872252-World-Eclipse-Spinning-Animation
+                        </p>
                     </div>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                     <h2 className="text-center text-3xl p-2">Models</h2>
-                    <div className="p-2">
+                    <div className="p-2 break-words">
                         <p>
                             "Tesla Powerwall 2" by Steven Samuel used under CC
                             BY 4.0
@@ -224,13 +227,14 @@ const About = () => {
                             "Low Poly Kitchen" by Bubble Tea
                             https://www.turbosquid.com/3d-models/low-poly-kitchen-1922088
                         </p>
+                        <p>"Interior office modern chair" by panerebus https://www.cgtrader.com/free-3d-models/interior/interior-office/interior-office-modern-chair</p>
                     </div>
                 </div>
                 <div className="mt-3 bg-gray-800 rounded-lg p-4">
                     <h2 className="text-center text-3xl">
                         Libraries and Tools Used:
                     </h2>
-                    <div className="flex flex-row justify-center">
+                    <div className="flex flex-col items-center lg:flex-row justify-center">
                         <div>
                             <button
                                 onClick={() => {

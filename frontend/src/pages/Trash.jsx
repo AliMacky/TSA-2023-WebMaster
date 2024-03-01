@@ -95,12 +95,12 @@ const Form = ({ setShowButtons }) => {
     const onImageSubmit = async (image) => {
         setShowButtons(false);
         let data = new FormData();
-        data.append("file", image, "image.jpg");
+        data.append("file", image);
         setLoading(true);
         console.log(data)
         try {
             const response = await axios.post(
-                "https://w6sh2140-5000.usw2.devtunnels.ms/predict",
+                "https://m6bpjgdm-5000.usw2.devtunnels.ms/predict",
                 data,
             );
             const prediction = response.data.prediction;
@@ -188,7 +188,7 @@ const Form = ({ setShowButtons }) => {
                             type="file"
                             accept="image/*"
                             onChange={handleImageChange}
-                            className="text-xxxs lg:text-base w-full py-2 px-4 mb-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring focus:border-blue-300"
+                            className="text-xxxs lg:text-base w-full py-2 px-4 mb-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring focus:border-blue-300 rounded-xl"
                         />
                         {imageUrl && (
                             <div>
@@ -230,7 +230,7 @@ const Form = ({ setShowButtons }) => {
                         <span className="font-bold">{category}</span> bin!
                     </h1>
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+                        className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-2"
                         onClick={() => {
                             moveCamera(3);
                             setShowButtons(true);
@@ -308,7 +308,7 @@ const Message = ({ showButtons }) => {
                             </div>
                         </div>
                         <button
-                            className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+                            className="text-2xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-5"
                             onClick={() => setShowText(false)}
                         >
                             OK
@@ -375,7 +375,7 @@ const Info = () => {
                 <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-2 relative">
                     <RiRecycleFill className="text-blue-500 absolute lg:top-3 lg:left-3 text-sm lg:text-3xl" />
 
-                    <h2 className="text-lg lg:text-3xl leading-snug tracking-normal">
+                    <h2 className="text-lg font-bold lg:text-3xl leading-snug tracking-normal">
                         Recycling
                     </h2>
                     <p className="text-xxs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
@@ -386,7 +386,7 @@ const Info = () => {
                 </div>
                 <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-3 relative">
                     <FaTrashAlt className="text-grey-700 absolute lg:top-3 lg:left-3 text-xs lg:text-2xl" />
-                    <h2 className="text-lg lg:text-3xl leading-relaxed tracking-normal">
+                    <h2 className="text-lg font-bold lg:text-3xl leading-relaxed tracking-normal">
                         Trash
                     </h2>
                     <p className="text-xxs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
@@ -398,7 +398,7 @@ const Info = () => {
                 </div>
                 <div className="rounded-lg bg-gray-800 p-1 lg:p-3 mt-3 relative">
                     <MdCompost className="text-green-500 absolute lg:top-3 lg:left-3 text-sm lg:text-3xl" />
-                    <h2 className="text-lg lg:text-3xl leading-relaxed tracking-normal">
+                    <h2 className="text-lg font-bold lg:text-3xl leading-relaxed tracking-normal">
                         Compost
                     </h2>
                     <p className="text-xxs lg:text-base leading-snug lg:leading-relaxed tracking-normal lg:mt-2 ">
@@ -413,6 +413,9 @@ const Info = () => {
 };
 
 const Trash = () => {
+    useEffect(() => {
+        document.title = "Trash";
+    }, [])
     const [showButtons, setShowButtons] = useState(true);
     return (
         <div className="w-screen h-screen bg-gray-600">

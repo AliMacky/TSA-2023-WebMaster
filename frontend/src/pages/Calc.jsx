@@ -54,10 +54,10 @@ const Slideshow = () => {
                 setFormName("Begin");
                 break;
             case 1:
-                setFormName("Enter your car's MPG");
+                setFormName("What is your gas car's MPG");
                 break;
             case 2:
-                setFormName("Enter your monthly miles driven");
+                setFormName("How many miles do you drive in a month");
                 break;
             case 3:
                 setFormName("Choose an EV to Compare to");

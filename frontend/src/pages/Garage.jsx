@@ -160,7 +160,7 @@ const Cube = ({
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-4 relative">
                 <IoIosLeaf className="text-green-500 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
 
-                <h2 className="text-2xl lg:text-3xl leading-snug tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-snug tracking-normal">
                     Environmental Benefits
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
@@ -185,7 +185,7 @@ const Cube = ({
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                 <AiOutlineDollar className="text-yellow-500 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
-                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-relaxed tracking-normal">
                     Costs
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2">
@@ -199,13 +199,13 @@ const Cube = ({
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                 <TbMoneybag className="text-yellow-700 absolute top-2 left-2 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
-                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-2 ">
                     According to the IRS, if you purchase an electric car
                     starting from 2023 to 2032 you can qualify for a tax rebate
-                    of up to $7,500.
+                    of up to <b className="text-bold">$7,500</b>.
                 </p>
             </div>
         </div>
@@ -235,7 +235,7 @@ const Cube = ({
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-4 relative">
                 <IoIosLeaf className="text-green-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
 
-                <h2 className="text-2xl lg:text-3xl leading-snug tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-snug tracking-normal">
                     Environmental Benefits
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
@@ -260,7 +260,7 @@ const Cube = ({
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                 <AiOutlineDollar className="text-yellow-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
-                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-relaxed tracking-normal">
                     Costs
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2">
@@ -275,13 +275,13 @@ const Cube = ({
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                 <TbMoneybag className="text-yellow-700 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
-                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 ">
                     According to the IRS, investing in renewable energy for a
-                    home can qualify someone for a tax credit of 30%, meaning
-                    they will have to pay 30% less of their taxes.
+                    home can qualify someone for a tax credit of <b className="text-bold">30%</b>, meaning
+                    they will have to pay <b className="text-bold">30%</b> less of their taxes.
                 </p>
             </div>
         </div>
@@ -310,7 +310,7 @@ const Cube = ({
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-4 relative">
                 <IoIosLeaf className="text-green-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
 
-                <h2 className="text-2xl lg:text-3xl leading-snug tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-snug tracking-normal">
                     Environmental Benefits
                 </h2>
                 <div className="flex lg:flex-row flex-col justify-center items-center">
@@ -332,7 +332,7 @@ const Cube = ({
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                 <AiOutlineDollar className="text-yellow-500 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
-                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-relaxed tracking-normal">
                     Costs
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2">
@@ -344,13 +344,13 @@ const Cube = ({
             </div>
             <div className="rounded-lg bg-gray-800 p-2 lg:p-3 mt-3 relative">
                 <TbMoneybag className="text-yellow-700 absolute top-1 left-1 lg:top-3 lg:left-3 text-xl lg:text-3xl" />
-                <h2 className="text-2xl lg:text-3xl leading-relaxed tracking-normal">
+                <h2 className="text-2xl font-bold lg:text-3xl leading-relaxed tracking-normal">
                     Tax Rebates
                 </h2>
                 <p className="text-xs lg:text-base leading-snug lg:leading-relaxed tracking-normal mt-1 lg:mt-2 ">
                     Homeowners who make energy-efficient improvements to their
                     home including the installation of electric heat pumps can
-                    qualify for a tax rebate of $3,200
+                    qualify for a tax rebate of <b className="text-bold">$3,200</b>
                 </p>
             </div>
         </div>
@@ -461,7 +461,7 @@ const Message = ({ showButtons }) => {
                             </div>
                         </div>
                         <button
-                            className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
+                            className="text-2xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-5"
                             onClick={() => setShowText(false)}
                         >
                             OK
@@ -512,6 +512,9 @@ const Message = ({ showButtons }) => {
 const Garage = () => {
     const [showButtons, setShowButtons] = useState(true);
     const [heatingPosition, setHeatingPosition] = useState([2.6, 1.4, -3.3]);
+    useEffect(() => {
+        document.title = "Garage";
+    }, [])
     return (
         <div className="w-screen h-screen bg-gray-600">
             <div style={{ width: "100vw", height: "100vh" }}>
