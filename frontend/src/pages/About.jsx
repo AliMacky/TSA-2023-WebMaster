@@ -31,10 +31,7 @@ const About = () => {
                         Copyright Checklist
                     </a>
                     <div>
-                        <a
-                            href="student-copyright-checklist-signed.pdf"
-                            className="hover:underline"
-                        >
+                        <a href="work-log.pdf" className="hover:underline">
                             Plan of Work Log
                         </a>
                     </div>
