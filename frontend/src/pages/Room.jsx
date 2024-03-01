@@ -1,6 +1,6 @@
 import "../index.css";
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState, Suspense } from "react";
+import { useRef, useState, Suspense, useEffect } from "react";
 import Loading from "../components/Loading";
 import { DirectionalLightHelper } from "three";
 import { gsap } from "gsap";
@@ -11,13 +11,7 @@ import * as THREE from "three";
 import { Html, useGLTF, useHelper, PerspectiveCamera } from "@react-three/drei";
 import { smoothAnimation } from "../smoothAnimation";
 import { calculateRotation } from "../calculateRotation";
-import {
-    FaTrashAlt,
-    FaCalculator,
-    FaSearch,
-    FaFolderMinus,
-    FaTrash,
-} from "react-icons/fa";
+import { FaTrashAlt, FaCalculator } from "react-icons/fa";
 import { PiGarageBold } from "react-icons/pi";
 import { MdKitchen } from "react-icons/md";
 
@@ -69,6 +63,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
     const [showButtons, setShowButtons] = useState(false);
     const { camera } = useThree();
     const target = lookAt;
+    const [isSafari, setIsSafari] = useState(false);
     useFrame(() => {});
     if (clicked) {
         const couchRotation = calculateRotation(cameraCubeRef, goTo, target);
@@ -81,6 +76,13 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
         );
         smoothAnimation(camera, cameraStartPosition, startRotation);
     }
+    useEffect(() => {
+        const userAgent = navigator.userAgent.toLowerCase();
+        setIsSafari(
+            userAgent.indexOf("safari") !== -1 &&
+                userAgent.indexOf("chrome") === -1
+        );
+    }, []);
 
     return (
         <>
@@ -112,7 +114,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                 <Html position={[-0.41, 2.23, 0.5]}>
                     <div className="flex flex-row p-1 ">
                         <button
-                            className="flex items-center justify-center font-kanit p-1 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            className="flex items-center justify-center font-kanit p-1 h-10 w-10 bg-green-600 m-1 text-white text-center shadow-2xl rounded-lg"
                             onClick={() =>
                                 (window.top.location.href = "/garage")
                             }
@@ -120,13 +122,13 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                             <PiGarageBold className="text-xl" />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-1 text-white text-center shadow-2xl rounded-lg"
                             onClick={() => (window.top.location.href = "/calc")}
                         >
                             <FaCalculator />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-1 text-white text-center shadow-2xl rounded-lg"
                             onClick={() =>
                                 (window.top.location.href = "/trash")
                             }
@@ -134,12 +136,48 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                             <FaTrashAlt />
                         </button>
                         <button
-                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-2 text-white text-center shadow-2xl rounded-lg"
+                            className="flex items-center justify-center font-kanit p-2 h-10 w-10 bg-green-600 m-1 text-white text-center shadow-2xl rounded-lg"
                             onClick={() =>
                                 (window.top.location.href = "/Kitchen")
                             }
                         >
                             <MdKitchen />
+                        </button>
+                    </div>
+                </Html>
+            )}
+            {showButtons && isSafari && (
+                <Html position={[-0.32, 2.18, 0.5]}>
+                    <div className="flex flex-row p-1 ">
+                        <button
+                            className="flex items-center justify-center font-kanit p-1 h-20 w-20 bg-green-600 m-4 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/garage")
+                            }
+                        >
+                            <PiGarageBold className="text-5xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-4 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() => (window.top.location.href = "/calc")}
+                        >
+                            <FaCalculator className="text-4xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-4 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/trash")
+                            }
+                        >
+                            <FaTrashAlt className="text-4xl" />
+                        </button>
+                        <button
+                            className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-4 text-white text-center shadow-2xl rounded-lg"
+                            onClick={() =>
+                                (window.top.location.href = "/Kitchen")
+                            }
+                        >
+                            <MdKitchen className="text-4xl" />
                         </button>
                     </div>
                 </Html>

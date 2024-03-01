@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import wallpaper from "../assets/bg.jpg";
 import { FaEarthAmericas, FaCircleInfo } from "react-icons/fa6";
 import {
@@ -15,13 +15,21 @@ const Screen = () => {
     const changeScreen = () => {
         window.top.location.href = "/garage";
     };
+    const [isSafari, setIsSafari] = useState(false);
+    useEffect(() => {
+        const userAgent = navigator.userAgent.toLowerCase();
+        setIsSafari(
+            userAgent.indexOf("safari") !== -1 &&
+                userAgent.indexOf("chrome") === -1
+        );
+    }, []);
 
     return (
         <div
             className="w-screen h-screen"
             style={{ backgroundImage: `url(${wallpaper})` }}
         >
-            {window.parent.innerWidth > 1100 && (
+            {window.parent.innerWidth > 1100 && !isSafari && (
                 <div className="flex flex-row p-1">
                     <button
                         className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-8 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
