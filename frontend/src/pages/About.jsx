@@ -7,9 +7,14 @@ import blenderIcon from "../assets/blender.png";
 import flaskIcon from "../assets/flask.png";
 import tfIcon from "../assets/tensorflow.png";
 import dockerIcon from "../assets/docker.jpg";
+import { useEffect } from "react";
 
 const About = () => {
-    document.body.style = "background:#4B5563";
+
+    useEffect(() => {
+        document.body.style = "background:#4B5563";
+        document.title = "About";
+    }, []);
     return (
         <div className="w-screen h-screen flex items-center justify-center">
             <div className="w-[80vw] absolute top-2 bg-gray-900 rounded-lg  p-6 text-white">
@@ -31,7 +36,10 @@ const About = () => {
                         Copyright Checklist
                     </a>
                     <div>
-                        <a href="work-log.pdf" className="hover:underline">
+                        <a
+                            href="work-log.pdf"
+                            className="hover:underline"
+                        >
                             Plan of Work Log
                         </a>
                     </div>

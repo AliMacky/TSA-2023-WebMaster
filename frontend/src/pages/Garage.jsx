@@ -436,7 +436,7 @@ const Message = ({ showButtons }) => {
                                 <p className="text-base lg:text-2xl max-w-6xl">
                                     Click on objects to learn about eco-friendly
                                     energy solutions for homes. Clickable
-                                    objects will be highlighted when hovered
+                                    objects (Car, Powerwall, Heat Pump) will be highlighted when hovered
                                     over.
                                 </p>
                             </div>
@@ -506,6 +506,7 @@ const Message = ({ showButtons }) => {
 
 const Garage = () => {
     const [showButtons, setShowButtons] = useState(true);
+    const [heatingPosition, setHeatingPosition] = useState([2.6, 1.4, -3.3]);
     return (
         <div className="w-screen h-screen bg-gray-600">
             <div style={{ width: "100vw", height: "100vh" }}>
@@ -537,7 +538,7 @@ const Garage = () => {
                             size={[0.6, 0.8, 1]}
                             goTo={new THREE.Vector3(1.8, 1.15, -3.4)}
                             lookAt={new THREE.Vector3(10, 1.15, -3.4)}
-                            textPosition={[3, 1.9, -4.9]}
+                            textPosition={[3, 2, -4.9]}
                             num={3}
                             setShowButtons={setShowButtons}
                         />

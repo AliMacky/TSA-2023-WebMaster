@@ -159,7 +159,7 @@ const Cube = ({ position, size, goTo, lookAt, setButtonPosition }) => {
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 h-20 w-20 bg-green-600 m-4 text-white text-center shadow-2xl rounded-lg"
-                            onClick={() => (window.top.location.href = "/calc")}
+                            onClick={() => (window.top.location.href = "/calculator")}
                         >
                             <FaCalculator className="text-4xl" />
                         </button>

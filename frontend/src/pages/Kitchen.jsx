@@ -20,9 +20,11 @@ import { MdKitchen } from "react-icons/md";
 import compost from "../assets/compost.jpg";
 import fridge from "../assets/fridge.jpg";
 
-let scale = 1;
+let scale = 1;;
 let width = window.innerWidth;
-if (window.innerWidth < 1100) scale = 2;
+if (window.innerWidth < 1100) {
+    scale = 2.5
+};
 if (window.innerWidth > 1800) width = 1800;
 const origin = new THREE.Vector3(0, 0, 0);
 const cameraStartPosition = new THREE.Vector3(0 * scale, 5 * scale, -8 * scale);
@@ -346,7 +348,7 @@ const Message = ({ showButtons }) => {
 
     return (
         <>
-            <Html fullscreen>
+            <Html fullscreen >
                 {showText && (
                     <div
                         className="flex flex-col justify-center items-center w-[100vw] h-[100vh] mx-auto text-white text-center bg-gray-900 shadow-md bg-opacity-85"
@@ -362,7 +364,7 @@ const Message = ({ showButtons }) => {
                                 <p className="text-base lg:text-2xl max-w-6xl">
                                     Click on objects to learn about eco-friendly
                                     energy solutions for homes. Clickable
-                                    objects will be highlighted when hovered
+                                    objects (Compost Bin, Fridge) will be highlighted when hovered
                                     over.
                                 </p>
                             </div>
@@ -390,7 +392,7 @@ const Message = ({ showButtons }) => {
                     </div>
                 )}
                 {!showText && showButtons && (
-                    <div className="flex flex-row p-1 ">
+                    <div className="flex flex-row p-1">
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                             onClick={() => (window.top.location.href = "/")}
@@ -403,7 +405,7 @@ const Message = ({ showButtons }) => {
                                 (window.top.location.href = "/garage")
                             }
                         >
-                            <PiGarageBold className="text-5xl" />
+                            <PiGarageBold className="text-6xl" />
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
@@ -413,7 +415,7 @@ const Message = ({ showButtons }) => {
                                 else window.top.location.href = "/calc";
                             }}
                         >
-                            <FaCalculator className="text-3xl lg:text-4xl" />
+                            <FaCalculator className="text-2xl lg:text-4xl" />
                         </button>
                         <button
                             className="flex items-center justify-center font-kanit p-2 lg:h-20 h-12 w-12 lg:w-20 bg-green-600 m-3 lg:m-5 text-white text-center shadow-2xl rounded-xl hover:scale-110 hover:shadow-2xl opacity-85 hover:opcaity-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
@@ -421,7 +423,7 @@ const Message = ({ showButtons }) => {
                                 (window.top.location.href = "/trash")
                             }
                         >
-                            <FaTrashAlt className="text-3xl lg:text-4xl" />
+                            <FaTrashAlt className="text-2xl lg:text-4xl" />
                         </button>
                     </div>
                 )}

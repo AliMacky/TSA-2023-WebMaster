@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
 import numpy as np
@@ -10,11 +10,10 @@ import tensorflow as tf
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/predict": {"origins": "https://tsa-webmaster-aapl.web.app/trash"}})
 
 
 @app.route("/predict", methods=["POST"])
-@cross_origin(origin='*',headers=['Content-Type'])
 def predict():
     if request.method == "POST":
         file = request.files["file"]
