@@ -99,7 +99,12 @@ const Form = ({ setShowButtons }) => {
         try {
             const response = await axios.post(
                 "http://localhost:5000/predict",
-                formData
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
             );
             const prediction = response.data.prediction;
             setCategory(prediction);
@@ -175,7 +180,7 @@ const Form = ({ setShowButtons }) => {
         <>
             <Html
                 position={[10, 31, (-1 * screenSize.width) / 56 - x]}
-                // style={{ transform: `scale(${scale})` }}
+            // style={{ transform: `scale(${scale})` }}
             >
                 <div className="w-[40vw] lg:w-[35vw] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 lg:p-8">
                     <h1 className="text-2xl lg:text-5xl font-bold text-shadow-lg tracking-wide mb-2 lg:mb-6">
@@ -361,7 +366,7 @@ const Info = () => {
     return (
         <Html
             position={[10, 31, screenSize.width / 370]}
-            // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
+        // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
             <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible lg:p-8">
                 <h1 className="text-2xl lg:text-5xl font-bold text-shadow-md tracking-wide">

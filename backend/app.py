@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 import os
 import numpy as np
@@ -14,6 +14,7 @@ CORS(app)
 
 
 @app.route("/predict", methods=["POST"])
+@cross_origin(origin='*',headers=['Content-Type'])
 def predict():
     if request.method == "POST":
         file = request.files["file"]
@@ -25,7 +26,7 @@ def predict():
                 filename,
             )
         )
-        answer, probability_results, category = getPrediction(filename)
+        answer, probability_results, category = getPrediction(filename)        
         return jsonify({"prediction": answer, "probability": probability_results, "category": category})
     
 @app.route("/test", methods=["GET"])
