@@ -366,7 +366,7 @@ const Info = () => {
             position={[10, 31, screenSize.width / 370]}
         // /*style={{ transform: `scale(${scale})` }}*/ className="w-100vw"
         >
-            <div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[100vh] overflow-y-scroll lg:overflow-y-visible lg:p-8">
+<div className="w-[40vw] lg:w-[35vw] h-[100%] mx-auto text-white text-center bg-gray-900 rounded-lg shadow-md p-4 max-h-[60vh] lg:max-h-[75vh] overflow-y-scroll xl:overflow-y-visible lg:p-8">
                 <h1 className="text-2xl lg:text-5xl font-bold text-shadow-md tracking-wide">
                     More Info
                 </h1>
