@@ -172,6 +172,7 @@ const Form = ({ setShowButtons }) => {
     else if (screenSize.height > 1000) x = -3;
     else x = 0.5;
     if (screenSize.width > 2000) x = -10;
+    if (screenSize.width > 2 * screenSize.height) x = 15
 
     return (
         <>

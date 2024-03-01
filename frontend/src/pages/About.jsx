@@ -48,118 +48,80 @@ const About = () => {
                     <h2 className="text-center text-3xl p-2">Sources</h2>
                     <div className="pl-14 -indent-12 p-2 break-words">
                         <p>
-                            "Air Source Heat Pumps." Energy.gov, U.S. Department
-                            of Energy,
-                            www.energy.gov/energysaver/air-source-heat-pumps.
+                            “5 Benefits of Residential Solar.” Energy.Gov, www.energy.gov/energysaver/articles/5-benefits-residential-solar. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            "Alternative Fuels Data Center." Energy.gov, U.S.
-                            Department of Energy,
-                            afdc.energy.gov/fuels/electricity_benefits.html.
-                            Accessed 15 Feb. 2024.
+                            “Air-Source Heat Pumps.” Energy.Gov, www.energy.gov/energysaver/air-source-heat-pumps. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            "Are electric vehicles definitely better for the
-                            climate than gas-powered cars?" MIT Climate Portal,
-                            MIT, 12 Oct. 2022,
-                            climate.mit.edu/ask-mit/are-electric-vehicles-definitely-better-climate-gas-powered-cars.
-                            Accessed 15 Feb. 2024.
+                            “Buying Energy-Efficient Appliances.” Green America, www.greenamerica.org/green-living/energy-efficient-appliances. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            Crail, Chauncey, and Corinne Tyane. "Solar Energy
-                            Pros And Cons: What Are The Advantages And
-                            Disadvantages?" Edited by Samantha Allen. Forbes,
-                            Forbes Media, 6 Feb. 2024,
-                            www.forbes.com/home-improvement/solar/solar-energy-pros-and-cons/.
-                            Accessed 15 Feb. 2024.
+                            Cathey, Pahriya Ashrap and Amber. “Trash to Treasure: The Incredible Benefits of Composting: The Pursuit: University of Michigan School of Public Health: Environmental Health: Innovation: Nutrition: Pollution.” The Pursuit | University of Michigan School of Public Health | Environmental Health | Innovation | Nutrition | Pollution, University of Michigan School of Public Health, 19 Sept. 2019, sph.umich.edu/pursuit/2019posts/benefits-of-composting.html.
                         </p>
 
                         <p>
-                            "Credits for new clean vehicles purchased in 2023 or
-                            after." IRS,
-                            www.irs.gov/credits-deductions/credits-for-new-clean-vehicles-purchased-in-2023-or-after.
-                            Accessed 15 Feb. 2024.
+                            “Composting: Solution to Food Loss and Waste.” International Environmental Technology Centre, www.unep.org/ietc/news/story/composting-solution-food-loss-and-waste. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            "Energy Efficient Home Improvement Credit." IRS,
-                            www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit.
-                            Accessed 16 Feb. 2024.
+                            Crail, Chauncey. “Solar Energy Pros and Cons: What Are the Advantages and Disadvantages?” Forbes, Forbes Magazine, 6 Feb. 2024, www.forbes.com/home-improvement/solar/solar-energy-pros-and-cons/.
                         </p>
 
                         <p>
-                            "Furnaces and Boilers." Energy.gov, U.S. Department
-                            of Energy,
-                            www.energy.gov/energysaver/furnaces-and-boilers.
-                            Accessed 15 Feb. 2024.
+                            “Electric Vehicle Benefits and Considerations.” Alternative Fuels Data Center: Electric Vehicle Benefits and Considerations, afdc.energy.gov/fuels/electricity_benefits.html. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            Gaur, Ankita Singh, et al. "Heat pumps and our
-                            low-carbon future: A comprehensive review."
-                            ScienceDirect, Elsevier B.V., 2020,
-                            www.sciencedirect.com/science/article/abs/pii/S221462962030339X.
-                            Accessed 18 Feb. 2024.
+                            Electric Vehicle Ownership Costs - Consumers Union, advocacy.consumerreports.org/wp-content/uploads/2020/10/EV-Ownership-Cost-Final-Report-1.pdf. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            "New-Vehicle Transaction Prices Decline Further in
-                            September, Led by Price Cuts at Tesla, According to
-                            Kelley Blue Book Report." Cox Automotive, 11 Oct.
-                            2023,
-                            www.coxautoinc.com/market-insights/kbb-atp-september-2023/.
-                            Accessed 15 Feb. 2024.
+                            EPA, Environmental Protection Agency, www.epa.gov/recycle/composting-home#whycom. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            Ogletree, Allie, and Nick Cellucci. "How Much Do
-                            Solar Panels Cost In 2024?" Edited by Lowe Saddler.
-                            Forbes, Forbes Media, 22 Feb. 2024,
-                            www.forbes.com/home-improvement/solar/cost-of-solar-panels/#factors_that_affect_solar_panel_costs_section.
-                            Accessed 15 Feb. 2024.
+                            “Furnaces and Boilers.” Energy.Gov, www.energy.gov/energysaver/furnaces-and-boilers. Accessed 4 Feb. 2024.
                         </p>
 
                         <p>
-                            "Residential Clean Energy Credit." IRS,
-                            www.irs.gov/credits-deductions/residential-clean-energy-credit.
-                            Accessed 18 Feb. 2024.
+                            Guar, Ankita Singh. “Heat Pumps and Our Low-Carbon Future: A Comprehensive Review.” Energy Research & Social Science, Elsevier, 27 Oct. 2020, www.sciencedirect.com/science/article/abs/pii/S221462962030339X.
                         </p>
                         <p>
-                            "Kitchen Appliances." Energy.gov, U.S. Department of
-                            Energy, www.energy.gov/
-                            energysaver/kitchen-appliances. Accessed 16 Feb.
-                            2024.
+                            Hailes, Dara. “New-Vehicle Transaction Prices Decline Further in September, Led by Price Cuts at Tesla, According to Kelley Blue Book Report.” Cox Automotive Inc., 11 Oct. 2023, www.coxautoinc.com/market-insights/kbb-atp-september-2023/.
                         </p>
                         <p>
-                            "Buying Energy-Efficient Appliances." Green America,
-                            www.greenamerica.org/
-                            green-living/energy-efficient-appliances. Accessed
-                            16 Feb. 2024.
+                            “Homeowner's Guide to Going Solar.” Energy.Gov, www.energy.gov/eere/solar/homeowners-guide-going-solar. Accessed 4 Feb. 2024.
                         </p>
                         <p>
-                            "Composting at Home." United States Environmental
-                            Protection Agency, 18 Dec. 2023,
-                            www.epa.gov/recycle/composting-home#whycom. Accessed
-                            15 Feb. 2024.
+                            Jonweiner. “Team of Appraisers Across Six States Find Home Buyers Will Pay Premium for Solar Homes.” Berkeley Lab News Center, 11 Nov. 2015, newscenter.lbl.gov/2015/11/12/premium-for-solar-homes/.
                         </p>
                         <p>
-                            "Composting: Solution to Food Loss and Waste."
-                            United Nations Environment Programme, 25 Sept. 2023,
-                            www.unep.org/ietc/news/story/
-                            composting-solution-food-loss-and-waste. Accessed 15
-                            Feb. 2024.
+                            “Kitchen Appliances.” Energy.Gov, www.energy.gov/energysaver/kitchen-appliances. Accessed 4 Feb. 2024.
                         </p>
                         <p>
-                            Cathey, Amber, and Pahriya Ashrap. "Trash to
-                            Treasure: The Incredible Benefits of Composting."
-                            University of Michigan School of Public Health, The
-                            Regents of the University of Michigan, 19 Sept.
-                            2019, sph.umich.edu/pursuit/
-                            2019posts/benefits-of-composting.html. Accessed 15
-                            Feb. 2024.
+                            Lindwall, Courtney. “Electric vs. Gas Cars: Is It Cheaper to Drive an Ev?” Be a Force for the Future, 17 Nov. 2023, www.nrdc.org/stories/electric-vs-gas-cars-it-cheaper-drive-ev.
+                        </p>
+                        <p>
+                            McCloy, John, et al. “13 Important Health & Environmental Benefits of Solar Energy.” Green Coast, 16 Jan. 2023, greencoast.org/environmental-benefits-of-solar-energy/.
+                        </p>
+                        <p>
+                            McMahon, Jeff. “Electric Vehicles Cost Less than Half as Much to Drive.” Forbes, Forbes Magazine, 16 Jan. 2018, www.forbes.com/sites/jeffmcmahon/2018/01/14/electric-vehicles-cost-less-than-half-as-much-to-drive/?sh=215332a03f97.
+                        </p>
+                        <p>
+                            Ogletree, Allie. “How Much Do Solar Panels Cost in 2024?” Forbes, Forbes Magazine, 22 Feb. 2024, www.forbes.com/home-improvement/solar/cost-of-solar-panels/#factors_that_affect_solar_panel_costs_section.
+                        </p>
+                        <p>
+                            “Residential Clean Energy Credit.” Internal Revenue Service, www.irs.gov/credits-deductions/residential-clean-energy-credit. Accessed 4 Feb. 2024.
+                        </p>
+                        <p>
+                            Ritchie, Hannah, and Max Roser. “Sector by Sector: Where Do Global Greenhouse Gas Emissions Come From?” Our World in Data, 28 Dec. 2023, ourworldindata.org/ghg-emissions-by-sector.
+                        </p>
+                        <p>
+                            Warwick, Sarah. “Eco Home Improvements: How to Make Your House Greener.” Homesandgardens.Com, Homes & Gardens, 8 June 2022, www.homesandgardens.com/advice/eco-home-improvements.
                         </p>
                     </div>
                 </div>
