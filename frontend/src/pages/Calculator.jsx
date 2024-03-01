@@ -217,6 +217,9 @@ const Calculator = () => {
     const IGNORE_ME = useGLTF(
         "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
     );
+    useEffect(() => {
+        document.title = "Calculator";
+    }, []);
     const [showButtons, setShowButtons] = useState(true);
     return (
         <div className="w-screen h-screen bg-gray-600">

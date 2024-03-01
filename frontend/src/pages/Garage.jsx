@@ -59,6 +59,7 @@ const Cube = ({
     textPosition,
     num,
     setShowButtons,
+    setHeatingPosition
 }) => {
     const [clicked, setClicked] = useState(false);
     const [cubeOpacity, setCubeOpacity] = useState(0);
@@ -103,6 +104,9 @@ const Cube = ({
             if (!clicked) {
                 moveCamera(0);
                 setView(1);
+                if (num === 2) {
+                    setHeatingPosition([999, 999, 999]);
+                }
                 setCubeOpacity(0);
                 setShowButtons(false);
                 setTimeout(() => {
@@ -219,6 +223,7 @@ const Cube = ({
                     setView(0);
                     setTimeout(() => {
                         setShowButtons(true);
+                        setHeatingPosition([2.6, 1.4, -3.3])
                     }, 1000);
                 }}
             >
@@ -523,6 +528,7 @@ const Garage = () => {
                             textPosition={[3.05, 2.7, -4.1]}
                             num={1}
                             setShowButtons={setShowButtons}
+                            setHeatingPosition={setHeatingPosition}
                         />
                         <Cube
                             position={[3.75, 0.5, 0.75]}
@@ -532,15 +538,17 @@ const Garage = () => {
                             textPosition={[2.4, 1.5, -1.6]}
                             num={2}
                             setShowButtons={setShowButtons}
+                            setHeatingPosition={setHeatingPosition}
                         />
                         <Cube
-                            position={[2.6, 1.4, -3.3]}
+                            position={heatingPosition}
                             size={[0.6, 0.8, 1]}
                             goTo={new THREE.Vector3(1.8, 1.15, -3.4)}
                             lookAt={new THREE.Vector3(10, 1.15, -3.4)}
                             textPosition={[3, 2, -4.9]}
                             num={3}
                             setShowButtons={setShowButtons}
+                            setHeatingPosition={setHeatingPosition}
                         />
                     </Canvas>
                 </Suspense>

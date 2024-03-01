@@ -96,7 +96,7 @@ const Slideshow = () => {
                     {currentForm === 0 ? (
                         <div className="flex flex-row w-screen h-screen absolute top-0 left-0 justify-center items-center">
                             <button
-                                className="text-5xl text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-[4vh] px-[8vw] rounded-xl"
+                                className="text-5xl text-center bg-green-600 hover:bg-green-800 text-white font-bold py-[4vh] px-[8vw] rounded-xl"
                                 onClick={nextForm}
                             >
                                 Begin
@@ -111,7 +111,7 @@ const Slideshow = () => {
                                         name={currentForm}
                                         value={formData[currentForm]}
                                         onChange={handleSelectChange}
-                                        className="text-black text-2xl mr-2 border-2 border-gray-500 px-2 py-2 w-64 my-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent focus:shadow-l"
+                                        className="text-black text-2xl mr-2 border-2 border-gray-500 px-2 py-2 w-64 my-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent focus:shadow-l"
                                     >
                                         <option value="Tesla Model Y">
                                             Tesla Model Y
@@ -128,7 +128,7 @@ const Slideshow = () => {
                                     </select>
                                 ) : (
                                     <input
-                                        className="text-black text-2xl mr-2 border-2 border-gray-500 px-2 py-2 w-64 my-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent focus:shadow-l"
+                                        className="text-black text-2xl mr-2 border-2 border-gray-500 px-2 py-2 w-64 my-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent focus:shadow-l"
                                         type="text"
                                         name={currentForm}
                                         value={formData[currentForm]}
@@ -137,7 +137,7 @@ const Slideshow = () => {
                                 )}
                             </label>
                             <button
-                                className="text-2xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                className="text-2xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
                                 type="submit"
                             >
                                 Submit
@@ -147,15 +147,15 @@ const Slideshow = () => {
                 </div>
             ) : (
                 <>
-                    <h1 className="text-white text-3xl font-bold px-2">
+                    <h1 className="text-white text-3xl font-bold">
                         Amounts Saved Per Month:
                     </h1>
-                    <h1 className="text-white text-2xl font-bold px-2">
+                    <h1 className="text-white text-2xl font-bold">
                         {saved.length != 0
                             ? `Gas: $${saved[0]}`
-                            : "Please enter all fields."}
+                            : "Please answer all the questions."}
                     </h1>
-                    <h1 className="text-white text-2xl font-bold px-2">
+                    <h1 className="text-white text-2xl font-bold">
                         {saved.length != 0 ? (
                             <>
                                 Emissions: {saved[1]} lbs of CO<sub>2</sub>
@@ -164,21 +164,27 @@ const Slideshow = () => {
                             <></>
                         )}
                     </h1>
-                    <h1 className="text-white text-2xl font-bold px-2">
-                        Comparing to {formData[3]}
+                    <h1 className="text-white text-2xl font-bold">
+                        {saved.length != 0 ? (
+                            <>
+                                Comparing to {formData[3]}
+                            </>
+                        ) : (
+                            <></>
+                        )}
                     </h1>
                 </>
             )}
             {currentForm !== 0 ? (
                 <>
                     <button
-                        className="text-4xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 my-3 rounded"
+                        className="text-4xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-2 my-3 rounded"
                         onClick={prevForm}
                     >
                         <FaArrowLeft />
                     </button>
                     <button
-                        className="text-4xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 mx-2 my-3 rounded"
+                        className="text-4xl bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-2 mx-2 my-3 rounded"
                         onClick={nextForm}
                     >
                         <FaArrowRight />
